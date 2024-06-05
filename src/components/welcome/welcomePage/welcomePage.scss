@@ -1,170 +1,203 @@
-@import '../../../assets/scss/variables.scss';
+@import "../../../assets/scss/variables.scss";
 
 .container {
-    width: 1200px;
-    margin: 0 auto;
+  width: 1200px;
+  margin: 0 auto;
 }
 
 .welcome-page {
+  width: 100%;
+  height: 95vh;
+  & .welcome-background {
+    background-image: url("../../../assets/Welcome_background.gif");
     width: 100%;
-    height: 95vh;
-    & .welcome-background {
-        background-image: url('../../../assets/Welcome_background.gif');
-        width: 100%;
-        height: 100%;
-        & .header {
+    height: 100%;
+    & .header {
+      width: 100%;
+      height: 110px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      & .header-items {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        & .logotype {
+          width: 158px;
+          height: 42px;
+        }
+        & .navs {
+          width: 247px;
+          height: 100%;
+          ul {
             width: 100%;
-            height: 110px;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            & .header-items {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                & .logotype {
-                    width: 158px;
-                    height: 42px;
+            & li {
+              list-style: none;
+              width: 100%;
+              & .navLink {
+                text-decoration: none;
+                color: $text-black;
+                font-size: 20px;
+                &.active {
+                  color: $primary;
+                  font-weight: 600;
                 }
-                & .navs {
-                    width: 247px;
-                    height: 100%;
-                    ul {
-                        width: 100%;
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                        & li {
-                            list-style: none;
-                            width: 100%;
-                            & .navLink {
-                                text-decoration: none;
-                                color: $text-black;
-                                font-size: 20px;
-                                &.active {
-                                    color: $primary;
-                                    font-weight: 600;
-                                }
-                            }
-                        }
-                    }
-                }
+              }
             }
+          }
         }
-        & .promo {
-            width: 100%;
-            margin-top: 70px;
-            & .promo-content {
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                .promo-headers {
-                    width: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    h1 {
-                        color: $primary;
-                        font-size: 56px;
-                        font-weight: 700;
-                        letter-spacing: 2px;
-                        line-height: 1px;
-                    }
-                    p {
-                        font-size: 28px;
-                        color: $text-black;
-                    }
-                }
-                .sides-choose {
-                    display: flex;
-                    margin-top: 50px;
-                    & .side {
-                        border-radius: 20px;
-                        padding: 10px;
-                        margin-right: 25px;
-                        width: 528px;
-                        height: 258px;
-                        & .side-content {
-                            padding: 10px 40px;
-                            & .side-texts {
-                                margin: 0;
-                                & .side-header-login {
-                                    display: flex;
-                                    align-items: center;
-                                    margin-bottom: 30px;
-                                    & .icon-welcome {
-                                        margin-right: 20px;
-                                    }
-                                    font-size: 36px;
-                                    color: white;
-                                    font-weight: bold;
-                                }
-                                & .side-texts-login {
-                                    color: white;
-                                    font-weight: 400;
-                                    font-size: 18px;
-                                    line-height: 0;
-                                    margin: 0;
-                                }
-                                & .side-header-download {
-                                    display: flex;
-                                    align-items: center;
-                                    margin-bottom: 20px;
-                                    & .icon-welcome {
-                                        margin-right: 20px;
-                                        font-size: 44px;
-                                    }
-                                    font-size: 36px;
-                                    color: $primary;
-                                    font-weight: bold;
-                                }
-                                & .side-texts-download {
-                                    color: $text-black;
-                                    font-weight: 200;
-                                }
-                            }   
-                            & .buttons {
-                                width: 100%;
-                                & button {
-                                    cursor: pointer;
-                                    height: 50px;
-                                    width: 140px;
-                                    border-radius: 100px;
-                                    border: none;
-                                }
-                                & .signUp {
-                                    background-color: white;
-                                    color: $primary;
-                                    font-size: 16px;
-                                }
-                                & .download {
-                                    border: 1px solid $primary;
-                                    width: 224px;
-                                    color: $primary;
-                                    font-size: 16px;
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                }
-                            }
-                            & .top {
-                                margin-top: 30px;
-                            }
-                        }
-                        &:last-child {
-                            margin-right: 0;
-                        }
-                    }
-                    & .login {
-                        background-color: $primary;
-                    }
-                    & .download {
-                        border: 1px solid $primary;
-                        background-color: white;
-                    }
-                }
-            }
-        }
+      }
     }
+    & .promo {
+      width: 100%;
+      margin-top: 70px;
+      & .promo-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .promo-headers {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          h1 {
+            color: $primary;
+            font-size: 56px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            line-height: 1px;
+          }
+          p {
+            font-size: 28px;
+            color: $text-black;
+          }
+        }
+        .sides-choose {
+          display: flex;
+          margin-top: 50px;
+          & .side {
+            border-radius: 20px;
+            padding: 10px;
+            margin-right: 25px;
+            width: 528px;
+            height: 258px;
+            & .side-content {
+              padding: 10px 40px;
+              & .side-texts {
+                margin: 0;
+                & .side-header-login {
+                  display: flex;
+                  align-items: center;
+                  margin-bottom: 30px;
+                  & .icon-welcome {
+                    margin-right: 20px;
+                  }
+                  font-size: 36px;
+                  color: white;
+                  font-weight: bold;
+                }
+                & .side-texts-login {
+                  color: white;
+                  font-weight: 400;
+                  font-size: 18px;
+                  line-height: 0;
+                  margin: 0;
+                }
+                & .side-header-download {
+                  display: flex;
+                  align-items: center;
+                  margin-bottom: 20px;
+                  & .icon-welcome {
+                    margin-right: 20px;
+                    font-size: 44px;
+                  }
+                  font-size: 36px;
+                  color: $primary;
+                  font-weight: bold;
+                }
+                & .side-texts-download {
+                  color: $text-black;
+                  font-weight: 200;
+                }
+              }
+              & .buttons {
+                width: 100%;
+                & button {
+                  cursor: pointer;
+                  height: 50px;
+                  width: 140px;
+                  border-radius: 100px;
+                  border: none;
+                }
+                & .signUp {
+                  background-color: white;
+                  color: $primary;
+                  font-size: 16px;
+                }
+                & .download {
+                  border: 1px solid $primary;
+                  width: 224px;
+                  color: $primary;
+                  font-size: 16px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                }
+              }
+              & .top {
+                margin-top: 30px;
+              }
+            }
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+          & .login {
+            background-color: $primary;
+          }
+          & .download {
+            border: 1px solid $primary;
+            background-color: white;
+          }
+        }
+      }
+    }
+    & .footer {
+      width: 100%;
+      height: 80px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      
+      & .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        & .footer-left {
+          display: flex;
+          justify-content: space-between;
+          & .footerLink {
+            color: $primary;
+            font-weight: 600;
+            text-decoration: none;
+          }
+          & .footerLink:first-child {
+            margin-right: 40px;
+          }
+        }
+        & .footer-right {
+          & p {
+            color: #99a2ad;
+            font-weight: 600;
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
 }
