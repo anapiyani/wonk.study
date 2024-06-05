@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEarthAsia } from "@fortawesome/free-solid-svg-icons";
 import AppShortcutIcon from "@mui/icons-material/AppShortcut";
 import AppleIcon from '@mui/icons-material/Apple';
+import AndroidIcon from '@mui/icons-material/Android';
 
 import "./welcomePage.scss";
 
@@ -45,7 +46,7 @@ const WelcomePage = () => {
           <div className="container">
             <div className="promo-content">
               <div className="promo-headers">
-                <h1>Welcome to Wonk!</h1>
+                <h1>Welcome to Wonk!🍎</h1>
                 <p>
                   AI powered virual assistant for both teachers and students
                 </p>
@@ -82,7 +83,8 @@ const WelcomePage = () => {
                       </p>
                     </div>
                     <div className="buttons">
-                      <button className="download"><AppleIcon /> Download for iOS</button>
+                      <button className="download"><AppleIcon /> iOS</button>
+                      <button className="download android"><AndroidIcon /> Android</button>
                     </div>
                   </div>
                 </div>
