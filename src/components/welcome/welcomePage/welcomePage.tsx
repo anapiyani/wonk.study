@@ -33,7 +33,7 @@ const WelcomePage = () => {
                   </li>
                   <li>
                     <NavLink className="navLink" to="/contact">
-                      Contact
+                      Contacts
                     </NavLink>
                   </li>
                 </ul>
