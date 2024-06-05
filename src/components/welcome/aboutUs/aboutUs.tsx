@@ -1,3 +1,4 @@
+import WelcomeFooter from '../layout/welcomeFooter/welcomeFooter';
 import WelcomeHeader from '../layout/welcomeHeader/welcomeHeader';
 import './aboutUs.scss';
 
@@ -31,6 +32,7 @@ const AboutUs = () => {
                     </div>
                 </div>
             </div>
+            <WelcomeFooter/>
         </div>
     )
 }

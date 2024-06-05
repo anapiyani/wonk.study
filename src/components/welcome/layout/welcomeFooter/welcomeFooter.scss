@@ -1,0 +1,31 @@
+@import '../../../../assets/scss/variables.scss';
+.welcome-footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: white;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    .footer-content {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: space-between;
+        align-items: center;
+        .footer-left {
+            & .footer-links {
+                text-decoration: none;
+                color: $text-black;
+                &:first-child {
+                    margin-right: 30px;
+                }
+            }
+        }
+        .footer-right {
+            p {
+                color: #99A2AD
+            }
+        }
+    }
+}
