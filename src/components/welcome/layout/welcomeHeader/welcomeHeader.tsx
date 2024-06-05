@@ -4,7 +4,7 @@ import './welcomeHeader.scss';
 
 const WelcomeHeader = () => {
     return (
-        <header>
+        <header className='welcome-header'>
             <div className="container">
                 <div className="header-content">
                     <NavLink to="/" className="logotype">
