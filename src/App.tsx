@@ -12,7 +12,7 @@ const App = () => {
               <Route path='/welcomePage' element={<WelcomeContainer/>} />
             </Route>
             <Route path='/aboutUs' element={<AboutUs/>} />
-            <Route path='/contacts' element={<ContactUs/>} />
+            <Route path='/contact' element={<ContactUs/>} />
         </Routes>
       </BrowserRouter>
     </div>
