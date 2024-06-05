@@ -10,6 +10,7 @@
         & .contact-content-inside {
             display: flex;
             justify-content: space-between;
+            padding: 0 130px;
             & .contact-texts {
                 & .contact-texts-default{
                     font-size: 20px;
@@ -30,7 +31,6 @@
                 }
             }
             & .contact-form {
-                
                 & .form {
                     display: flex;
                     flex-direction: column;
