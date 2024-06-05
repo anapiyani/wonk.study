@@ -7,8 +7,8 @@ const ContactUs = () => {
     return (
         <div className="contact">
             <WelcomeHeader/>
-            <div className="contact-content">
-                <div className="container">
+            <div className="container">
+                <div className="contact-content">
                     <div className="container">
                         <div className="contact-texts">
 
