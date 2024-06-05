@@ -9,14 +9,16 @@ const ContactUs = () => {
             <WelcomeHeader/>
             <div className="contact-content">
                 <div className="container">
-                    <div className="contact-texts">
+                    <div className="container">
+                        <div className="contact-texts">
 
+                        </div>
                     </div>
-                </div>
-                <div className="contact-form">
-                    <form className='form'>
-                        <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-                    </form>
+                    <div className="contact-form">
+                        <form className='form'>
+                            <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+                        </form>
+                    </div>
                 </div>
             </div>
             <WelcomeFooter/>
