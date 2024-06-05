@@ -1,6 +1,41 @@
+@import '../../../assets/scss/variables.scss';
 .about-us {
     margin: 0;
     width: 100%;
-    height: 95vh;
+    height: 100%;
     background-color: rgba(249, 249, 249, 0.853);
+    & .about-us-content {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 70%;
+        margin: 0 auto;
+        padding-top: 120px;
+        padding-bottom: 120px;
+        & .header-text {
+            & h1 {
+                color: $primary;
+                font-size: 42px;
+            }
+            & p {
+                font-size: 22px;
+                color: $text-black;
+            }
+        }
+        & .texts {
+            .each-text {
+                margin-top: 30px;
+                width: 100%;
+                & .each-header-text {
+                    font-size: 26px;
+                    color: black;
+                    font-weight: 600;
+                }
+                & .each-inside-text {
+                    font-size: 20px;
+                    color: $text-black;
+                }
+            }
+        }
+    }
 }
