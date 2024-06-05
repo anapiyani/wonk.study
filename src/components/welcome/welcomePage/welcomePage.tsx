@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import logotype from "../../../assets/logo_word.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEarthAsia } from "@fortawesome/free-solid-svg-icons";
@@ -33,7 +33,7 @@ const WelcomePage = () => {
                   </li>
                   <li>
                     <NavLink className="navLink" to="/contact">
-                      Contactss
+                      Contacts
                     </NavLink>
                   </li>
                 </ul>
@@ -90,6 +90,20 @@ const WelcomePage = () => {
             </div>
           </div>
         </div>
+        <footer className="footer">
+          <div className="container">
+            <div className="footer-content">
+              <div className="footer-left">
+                <Link to="/" className="footerLink">Privacy Policy</Link>
+                <Link to="/" className="footerLink">Terms of Use</Link>
+              </div>
+              <div className="footer-right">
+                <p>&copy; 2024 Wonk | All rights reserved.</p>
+              </div>
+            </div>
+          </div>
+        </footer>
+        
       </div>
     </div>
   );
