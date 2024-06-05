@@ -11,7 +11,23 @@
             display: flex;
             justify-content: space-between;
             & .contact-texts {
-            
+                & .contact-texts-default{
+                    font-size: 20px;
+                    color: $text-black;
+                    font-weight: 400;
+                }
+                & .contact-texts-header{
+                    font-size: 36px;
+                    color: $primary;
+                    font-weight: 700;
+                    margin: 0;
+                }
+                & .contact-texts-credentials{
+                    font-size: 16px;
+                    color: $text-black;
+                    font-weight: 400;
+                    
+                }
             }
             & .contact-form {
     
