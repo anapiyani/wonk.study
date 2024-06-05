@@ -88,21 +88,36 @@
                         & .side-content {
                             padding: 10px 40px;
                             & .side-texts {
+                                margin: 0;
                                 & .side-header-login {
+                                    display: flex;
+                                    align-items: center;
+                                    margin-bottom: 30px;
+                                    & .icon-welcome {
+                                        margin-right: 20px;
+                                    }
                                     font-size: 36px;
                                     color: white;
                                     font-weight: bold;
-                                    line-height: 0.8px;
                                 }
                                 & .side-texts-login {
                                     color: white;
-                                    font-weight: 200;
+                                    font-weight: 400;
+                                    font-size: 18px;
+                                    line-height: 0;
+                                    margin: 0;
                                 }
                                 & .side-header-download {
+                                    display: flex;
+                                    align-items: center;
+                                    margin-bottom: 20px;
+                                    & .icon-welcome {
+                                        margin-right: 20px;
+                                        font-size: 44px;
+                                    }
                                     font-size: 36px;
                                     color: $primary;
                                     font-weight: bold;
-                                    line-height: 0.8px;
                                 }
                                 & .side-texts-download {
                                     color: $text-black;
@@ -110,34 +125,31 @@
                                 }
                             }   
                             & .buttons {
-                                margin-top: 40px;
                                 width: 100%;
                                 & button {
                                     cursor: pointer;
-                                    height: 60px;
-                                    width: 130px;
+                                    height: 50px;
+                                    width: 140px;
                                     border-radius: 100px;
                                     border: none;
-                                    margin-right: 20px;
-                                    &:last-child {
-                                        margin-right: 0;
-                                    }
                                 }
                                 & .signUp {
                                     background-color: white;
                                     color: $primary;
-                                }
-                                & .signIn {
-                                    background-color: transparent;
-                                    border: 1px solid white;
-                                    color: white;
+                                    font-size: 16px;
                                 }
                                 & .download {
                                     border: 1px solid $primary;
                                     width: 224px;
                                     color: $primary;
-                                    font-size: 20px;
+                                    font-size: 16px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
                                 }
+                            }
+                            & .top {
+                                margin-top: 30px;
                             }
                         }
                         &:last-child {
