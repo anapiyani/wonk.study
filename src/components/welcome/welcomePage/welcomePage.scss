@@ -22,7 +22,7 @@
         justify-content: space-between;
         align-items: center;
         & .logotype {
-          width: 158px;
+          width: 178px;
           height: 42px;
         }
         & .navs {
@@ -125,6 +125,7 @@
               }
               & .buttons {
                 width: 100%;
+                display: flex;
                 & button {
                   cursor: pointer;
                   height: 50px;
@@ -139,12 +140,20 @@
                 }
                 & .download {
                   border: 1px solid $primary;
-                  width: 224px;
+                  padding: 0 30px;
                   color: $primary;
                   font-size: 16px;
                   display: flex;
                   align-items: center;
                   justify-content: center;
+                  margin-right: 10px;
+                  &:last-child{
+                    margin-right: 0;
+                  }
+                }
+                & .android {
+                    background-color: $primary;
+                    color: white;
                 }
               }
               & .top {
