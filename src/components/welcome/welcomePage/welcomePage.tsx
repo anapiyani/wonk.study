@@ -28,7 +28,7 @@ const WelcomePage = () => {
                   </li>
                   <li>
                     <NavLink className="navLink" to="/aboutUs">
-                      About
+                      Aboutfff
                     </NavLink>
                   </li>
                   <li>
