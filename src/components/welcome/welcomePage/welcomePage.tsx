@@ -82,7 +82,7 @@ const WelcomePage = () => {
                       </p>
                     </div>
                     <div className="buttons">
-                      <button className="download"><AppleIcon/> Download for iOS</button>
+                      <button className="download"><AppleIcon /> Download for iOS</button>
                     </div>
                   </div>
                 </div>

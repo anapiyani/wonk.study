@@ -1,5 +1,6 @@
 import {Routes, BrowserRouter, Route } from 'react-router-dom';
 import WelcomeContainer from './containers/welcomeContainer/welcomeContainer';
+import AboutUs from './components/welcome/aboutUs/aboutUs';
 
 const App = () => {
   return (
@@ -8,8 +9,8 @@ const App = () => {
         <Routes>
             <Route path="/" element={<WelcomeContainer/>}>
               <Route path='/welcomePage' element={<WelcomeContainer/>} />
-              {/* <Route path='/aboutUs' element="" /> */}
             </Route>
+            <Route path='/aboutUs' element={<AboutUs/>} />
         </Routes>
       </BrowserRouter>
     </div>
