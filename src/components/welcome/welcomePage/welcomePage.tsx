@@ -23,7 +23,7 @@ const WelcomePage = () => {
                 <ul>
                   <li>
                     <NavLink className="navLink" to="/">
-                      Homeeeee
+                      HomeeeeeEEEEE
                     </NavLink>
                   </li>
                   <li>
