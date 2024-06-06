@@ -1,12 +1,34 @@
+
 import WelcomeFooter from '../layout/welcomeFooter/welcomeFooter';
 import WelcomeHeader from '../layout/welcomeHeader/welcomeHeader';
 import TextField from '@mui/material/TextField';
-import './contactUs.scss'
 import { Button } from '@mui/material';
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from 'react';
+import { sendMessageEmail } from '../../../store/email.slice';
+import { useDispatch} from 'react-redux';
+import { AppDispatch } from '../../../store/store';
+import { TEmailMessage } from '../../../types/types';
+import './contactUs.scss';
 
 const ContactUs = () => {
+    const dispatch: AppDispatch = useDispatch();
+    const [name, setName] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+    const [message, setMessage] = useState<string>('');
+
+    const onSendMessage = (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      const dataSend: TEmailMessage = {
+        name: name,
+        sender_email: email,
+        message: message,
+      }
+      console.log("Sending data:", dataSend); 
+      dispatch(sendMessageEmail(dataSend))
+    }
+
     return (
     <div className="contact">
       <WelcomeHeader />
@@ -29,10 +51,10 @@ const ContactUs = () => {
               </p>
             </div>
             <div className="contact-form">
-                    <form className='form'>
-                        <TextField className='inputs' id="outlined-basic" label="Name..." variant="outlined" />
-                        <TextField className='inputs' id="outlined-basic" label="Email..." variant="outlined" />
-                        <TextField className='message' id="outlined-basic" label="Your message..." variant="outlined" />
+                    <form onSubmit={(e) => onSendMessage(e)} className='form'>
+                        <TextField required onChange={(e) => setName(e.target.value)} className='inputs' id="outlined-basic" label="Name..." variant="outlined" />
+                        <TextField required onChange={(e) => setEmail(e.target.value)} className='inputs' type="email" id="outlined-basic" label="Email..." variant="outlined" />
+                        <TextField required onChange={(e) => setMessage(e.target.value)} className='message' id="outlined-basic" label="Your message..." variant="outlined" />
                         <Button className='send-button' type='submit' variant='contained'>Send Message</Button>
                     </form>
                 </div>
