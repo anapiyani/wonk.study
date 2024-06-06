@@ -96,8 +96,8 @@ const WelcomePage = () => {
           <div className="container">
             <div className="footer-content">
               <div className="footer-left">
-                <Link to="/" className="footerLink">Privacy Policy</Link>
-                <Link to="/" className="footerLink">Terms of Use</Link>
+                <Link to="/pravicyPolicy" className="footerLink">Privacy Policy</Link>
+                <Link to="/pravicyPolicy" className="footerLink">Terms of Use</Link>
               </div>
               <div className="footer-right">
                 <p>&copy; 2024 Wonk | All rights reserved.</p>
