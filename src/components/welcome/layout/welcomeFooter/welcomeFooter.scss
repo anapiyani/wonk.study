@@ -1,4 +1,6 @@
 @import '../../../../assets/scss/variables.scss';
+@import '../../../../assets/scss/_mixin';
+
 .welcome-footer {
     width: 100%;
     position: fixed;
@@ -12,20 +14,45 @@
         display: flex;
         width: 100%;
         height: 100%;
-        justify-content: space-between;
+        justify-content: space-between; 
         align-items: center;
+        @include media-md {
+            padding: 0 20px;
+        }
+        @include media-sm {
+            padding: 0 20px;
+        }
         .footer-left {
+            @include media-sm {
+                display: flex;
+                flex-direction: column;
+            }
             & .footer-links {
                 text-decoration: none;
                 color: $text-black;
                 &:first-child {
                     margin-right: 30px;
                 }
+                @include media-md {
+                    font-size: 12px;
+                }
+                @include media-sm {
+                    font-size: 8px;
+                    margin-top: 5px;
+                }
             }
         }
         .footer-right {
             p {
-                color: #99A2AD
+                color: #99A2AD;
+                @include media-md {
+                    font-size: 12px;
+                    margin-right: 40px;
+                }
+                @include media-sm {
+                    font-size: 8px;
+                    margin-right: 40px;
+                }
             }
         }
     }
