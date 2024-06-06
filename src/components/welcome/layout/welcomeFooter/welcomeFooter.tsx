@@ -7,11 +7,11 @@ const WelcomeFooter = () => {
             <div className="container">
                 <div className="footer-content">
                     <div className="footer-left">
-                        <Link className='footer-links' to="/pravicyPolicy">Privacy Policy</Link>
-                        <Link className='footer-links' to="/pravicyPolicy">Terms of Use</Link>
+                        <Link className='footer-links' to="/privacyPolicy">Privacy Policy</Link>
+                        <Link className='footer-links' to="/termsOfUse">Terms of Use</Link>
                     </div>
                     <div className="footer-right">
-                        <p>Copyright © 2023 Wonk AI | All Rights Reserved </p>
+                        <p>&copy; 2024 Wonk | All rights reserved.</p>
                     </div>
                 </div>
             </div>
