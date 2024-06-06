@@ -1,8 +1,8 @@
 import WelcomeFooter from '../layout/welcomeFooter/welcomeFooter';
 import WelcomeHeader from '../layout/welcomeHeader/welcomeHeader';
-import './pravicyPolicy.scss';
+import './privacyPolicy.scss';
 
-const PravicyPolicy = () => {
+const PrivacyPolicy = () => {
     return (
         <div className="terms-of-policy">
             <WelcomeHeader/>
@@ -70,4 +70,4 @@ const PravicyPolicy = () => {
     )
 }
 
-export default PravicyPolicy;
+export default PrivacyPolicy;
