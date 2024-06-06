@@ -9,8 +9,19 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 import "./welcomePage.scss";
 import { Button } from "@mui/material";
+import { useState } from "react";
 
 const WelcomePage = () => {
+  const [onHide, setOnHide] = useState<boolean>(true);
+
+  const onClickMenu = () => {
+    if (onHide == false) {
+      setOnHide(true);
+    } else {
+      setOnHide(false);
+    }
+  }
+
   return (
     <div className="welcome-page">
       <div className="welcome-background">
@@ -22,7 +33,16 @@ const WelcomePage = () => {
                   <img src={logotype} alt="wonkAi" />
                 </NavLink>
               </div>
-              <Button className="menu-icon"><MenuIcon/></Button>
+              <Button onClick={onClickMenu} className="menu-icon"><MenuIcon/></Button>
+              <div className={`menu ${onHide ? 'hide' : 'show'}`}>  
+                <div className="menu-content">
+                    <ul>
+                      <li><NavLink className="nav-links" to="/"><Button className="nav-link-buttons">Home</Button></NavLink></li>
+                      <li><NavLink className="nav-links" to="/aboutUs"><Button className="nav-link-buttons">About</Button></NavLink></li>
+                      <li><NavLink className="nav-links" to="/contact"><Button className="nav-link-buttons">Contacts</Button></NavLink></li>
+                    </ul>
+                </div>
+              </div>
               <nav className="navs">
                 <ul>
                   <li>
