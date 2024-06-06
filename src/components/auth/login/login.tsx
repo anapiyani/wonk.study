@@ -2,12 +2,12 @@ import { Button, TextField } from '@mui/material';
 import WelcomeFooter from '../../welcome/layout/welcomeFooter/welcomeFooter';
 import WelcomeHeader from '../../welcome/layout/welcomeHeader/welcomeHeader';
 import { Link } from 'react-router-dom';
-import './login.scss';
 import { useState } from 'react';
 import { TLoginUser } from '../../../types/types';
 import { AppDispatch } from '../../../store/store';
 import { useDispatch } from 'react-redux';
 import { loginPost } from '../../../store/login.slice';
+import './login.scss';
 
 const Login = () => {
     const dispatch: AppDispatch = useDispatch();
