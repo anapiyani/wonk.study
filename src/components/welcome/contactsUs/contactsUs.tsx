@@ -25,7 +25,6 @@ const ContactUs = () => {
         sender_email: email,
         message: message,
       }
-      console.log("Sending data:", dataSend); 
       dispatch(sendMessageEmail(dataSend))
     }
 
