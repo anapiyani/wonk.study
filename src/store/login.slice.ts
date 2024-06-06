@@ -11,6 +11,7 @@ export const loginPost = createAsyncThunk(
     const response = await axiosLogin.post('/users/user/login/', body);
     // Nachdem Sie die Daten abgerufen haben, müssen Sie refresh und access speichern und zur Startseite umleiten)
     console.log(response);
+    // und logic für wenn kein Benutzer vorhanden ist
   }
 );
 
