@@ -1,0 +1,84 @@
+@import '../../../assets/scss/variables.scss';
+@import '../../../assets/scss/_mixin.scss';
+.login {
+    margin: 0;
+    width: 100%;
+    & .login-content {
+        padding-bottom: 120px;
+        padding-top: 120px;
+        & .login-header {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            & h1 {
+                color: $primary;
+                font-size: 36px;
+            }
+        }
+        & .login-form {
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            @include media-xl {
+                width: 100%;
+            }
+            @include media-md {
+                width: 100%;
+            }
+            @include media-sm {
+                width: 100%;
+            }
+            & .inputs {
+                width: 400px;
+                margin-bottom: 40px;
+                border-radius: 40px;
+                @include media-xl {
+                    width: 100%;
+                }
+                @include media-md {
+                    width: 100%;
+                }
+                @include media-sm {
+                    width: 100%;
+                }
+                &:hover {
+                    border-color: $primary;
+                }
+
+                .MuiOutlinedInput-root {
+                    border-radius: 40px;
+                    height: 100%;
+                    background-color: #F2F3F5;
+
+                    .MuiOutlinedInput-notchedOutline {
+                        border-color: $primary;
+                    }
+                }
+
+                .MuiInputLabel-root {
+                    font-size: 14px;
+                    top: 2px;
+                    left: 3px;
+                    color: #99A2AD;
+                }
+            }
+            & .forgot {
+                margin-bottom: 20px;
+                color: $text-black;
+
+            }
+            & .send-button {
+                height: 62px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+                text-transform: capitalize;
+                background-color: $primary;
+                border-radius: 40px;
+            }
+        }
+    }
+}
