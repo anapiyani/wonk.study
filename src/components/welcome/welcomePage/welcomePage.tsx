@@ -90,7 +90,7 @@ const WelcomePage = () => {
                       </p>
                     </div>
                     <div className="buttons top">
-                      <button className="signUp">Log in</button>
+                      <Link to='/login'><button className="signUp">Log in</button></Link>
                     </div>
                   </div>
                 </div>
