@@ -1,8 +1,31 @@
 @import "../../../assets/scss/variables.scss";
+@import "../../../assets/scss/mixin";
+
 
 .container {
   width: 1200px;
   margin: 0 auto;
+  .menu-icon {
+    display: none;
+  }
+  @include media-xl {
+    width: 1000px;
+    .menu-icon {
+      display: none;
+    }
+  }
+  @include media-md {
+    width: 501px;
+    .menu-icon {
+      display: none;
+    }
+  }
+  @include media-sm {
+    width: 320px;
+    .menu-icon {
+      display: block;
+    }
+  }
 }
 
 .welcome-page {
@@ -17,22 +40,56 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      @include media-sm {
+        height: 60px;
+      }
       & .header-items {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        @include media-xl {
+          padding: 0px 80px;
+        }
+        @include media-md {
+          align-items: center;
+          justify-content: center;
+        }
+        @include media-sm {
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 30px;
+        }
         & .logotype {
           width: 178px;
           height: 42px;
+          @include media-xl {
+            width: 160px;
+          }
+          @include media-md {
+            margin-right: 20px;
+          }
+          @include media-sm {
+            width: 100px;
+            height: 25px;
+          }
         }
         & .navs {
           width: 247px;
           height: 100%;
+          @include media-md {
+            width: 200px;
+          }
+          @include media-sm {
+            display: none;
+          }
           ul {
             width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            @include media-md {
+              width: 100%;
+            }
             & li {
               list-style: none;
               width: 100%;
@@ -40,6 +97,9 @@
                 text-decoration: none;
                 color: $text-black;
                 font-size: 20px;
+                @include media-md {
+                  font-size: 14px;
+                }
                 &.active {
                   color: $primary;
                   font-weight: 600;
@@ -69,25 +129,67 @@
             font-weight: 700;
             letter-spacing: 2px;
             line-height: 1px;
+            @include media-md {
+              font-size: 34px;
+            }
+            @include media-sm {
+              font-size: 24px;
+            }
           }
           p {
             font-size: 28px;
             color: $text-black;
+            @include media-md {
+              font-size: 14px;
+            }
+            @include media-sm {
+              font-size: 12px;
+              text-align: center;
+              padding: 0 20px;
+            }
           }
         }
         .sides-choose {
           display: flex;
           margin-top: 50px;
+          @include media-md {
+            flex-direction: column;
+          }
+          @include media-sm {
+            flex-direction: column;
+            margin-top: 10px;
+          }
           & .side {
             border-radius: 20px;
             padding: 10px;
             margin-right: 25px;
             width: 528px;
             height: 258px;
+            @include media-xl {
+              width: 428px;
+            }
+            @include media-md {
+              margin: 0;
+              width: 450px;
+              margin-top: 30px;
+              height: 200px;
+            }
+            @include media-sm {
+              margin: 0;
+              width: 250px;
+              margin-top: 30px;
+              height: 200px;
+            }
             & .side-content {
               padding: 10px 40px;
+              @include media-sm {
+                  padding: 10px 20px;
+              }
               & .side-texts {
                 margin: 0;
+                @include media-sm {
+                  width: 100%;
+                }
                 & .side-header-login {
                   display: flex;
                   align-items: center;
@@ -98,6 +200,16 @@
                   font-size: 36px;
                   color: white;
                   font-weight: bold;
+                  @include media-xl {
+                    font-size: 28px;
+                  }
+                  @include media-md {
+                    font-size: 26px;
+                  }
+                  @include media-sm {
+                    font-size: 20px;
+                    margin-bottom: 20px;
+                  }
                 }
                 & .side-texts-login {
                   color: white;
@@ -105,6 +217,15 @@
                   font-size: 18px;
                   line-height: 0;
                   margin: 0;
+                  @include media-xl {
+                    font-size: 14px;
+                  }
+                  @include media-md {
+                    font-size: 14px;
+                  }
+                  @include media-sm {
+                    font-size: 12px;
+                  }
                 }
                 & .side-header-download {
                   display: flex;
@@ -117,10 +238,25 @@
                   font-size: 36px;
                   color: $primary;
                   font-weight: bold;
+                  @include media-xl {
+                    font-size: 28px;
+                  }
+                  @include media-md {
+                    font-size: 26px;
+                  }
+                  @include media-sm {
+                    font-size: 20px;
+                  }
                 }
                 & .side-texts-download {
                   color: $text-black;
                   font-weight: 200;
+                  @include media-sm {
+                    font-size: 1px;
+                  }
+                }
+                & .email {
+                  color: white;
                 }
               }
               & .buttons {
@@ -132,11 +268,18 @@
                   width: 140px;
                   border-radius: 100px;
                   border: none;
+                  @include media-sm {
+                    width: 100px;
+                    height: 30px;
+                  }
                 }
                 & .signUp {
                   background-color: white;
                   color: $primary;
                   font-size: 16px;
+                  @include media-sm {
+                    font-size: 13px;
+                  }
                 }
                 & .download {
                   border: 1px solid $primary;
@@ -150,14 +293,23 @@
                   &:last-child{
                     margin-right: 0;
                   }
+                  @include media-sm {
+                    font-size: 13px;
+                  }
                 }
                 & .android {
                     background-color: $primary;
                     color: white;
+                    @include media-sm {
+                      font-size: 13px;
+                    }
                 }
               }
               & .top {
                 margin-top: 30px;
+                @include media-sm {
+                  margin: 0;
+                }
               }
             }
             &:last-child {
@@ -181,21 +333,50 @@
       bottom: 0;
       left: 0;
       right: 0;
-      
+      @include media-md {
+          position: relative;
+      }
+      @include media-sm {
+        position: relative;
+      }
       & .footer-content {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        @include media-xl {
+          padding: 0px 50px;
+          margin-top: 30px;
+        }
+        @include media-md {
+          padding: 0px 40px;
+          margin-top: 30px;
+        }
+        @include media-sm {
+          padding: 0px 40px;
+          margin-top: 30px;
+        }
         & .footer-left {
           display: flex;
           justify-content: space-between;
+          @include media-sm {
+            margin-right: 40px;
+          }
           & .footerLink {
             color: $primary;
             font-weight: 600;
             text-decoration: none;
+            @include media-md {
+              font-size: 12px;
+            }
+            @include media-sm {
+              font-size: 10px;
+            }
           }
           & .footerLink:first-child {
             margin-right: 40px;
+            @include media-sm {
+                margin-right: 20px;
+            }
           }
         }
         & .footer-right {
@@ -203,6 +384,12 @@
             color: #99a2ad;
             font-weight: 600;
             font-size: 15px;
+            @include media-md {
+              font-size: 12px;
+            }
+            @include media-sm {
+              font-size: 10px;
+            }
           }
         }
       }
