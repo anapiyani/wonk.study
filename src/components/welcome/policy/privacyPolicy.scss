@@ -1,4 +1,6 @@
 @import '../../../assets/scss/variables.scss';
+@import '../../../assets/scss/_mixin';
+
 .terms-of-policy-content {
     padding-top: 120px;
     padding-bottom: 120px;
@@ -15,7 +17,9 @@
         }
     }
     & .privacy-body-texts {
-
+        @include media-sm {
+            padding: 20px;
+        }
         & .privacy-body {
             display: flex;
             flex-direction: column;
