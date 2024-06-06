@@ -5,8 +5,10 @@ import { faEarthAsia } from "@fortawesome/free-solid-svg-icons";
 import AppShortcutIcon from "@mui/icons-material/AppShortcut";
 import AppleIcon from '@mui/icons-material/Apple';
 import AndroidIcon from '@mui/icons-material/Android';
+import MenuIcon from '@mui/icons-material/Menu';
 
 import "./welcomePage.scss";
+import { Button } from "@mui/material";
 
 const WelcomePage = () => {
   return (
@@ -20,6 +22,7 @@ const WelcomePage = () => {
                   <img src={logotype} alt="wonkAi" />
                 </NavLink>
               </div>
+              <Button className="menu-icon"><MenuIcon/></Button>
               <nav className="navs">
                 <ul>
                   <li>
@@ -62,7 +65,7 @@ const WelcomePage = () => {
                         />
                         Use the website
                       </p>
-                      <p className="side-texts-login">
+                      <p className="side-content-download email">
                         Sign in with your school assigned email.
                       </p>
                     </div>
