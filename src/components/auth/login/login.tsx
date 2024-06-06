@@ -7,7 +7,9 @@ const Login = () => {
         <div className="login">
             <WelcomeHeader/>
             <div className="login-content">
-                
+                <div className="container">
+                    
+                </div>
             </div>
             <WelcomeFooter/>
         </div>
