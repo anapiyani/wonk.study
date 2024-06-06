@@ -4,6 +4,7 @@ import AboutUs from "./components/welcome/aboutUs/aboutUs";
 import ContactUs from "./components/welcome/contactsUs/contactsUs";
 import PrivacyPolicy from "./components/welcome/policy/privacyPolicy";
 import TermsOfUse from "./components/welcome/termsOfUse/termsOfUse";
+import LoginContainer from "./containers/loginContainer/loginContainer";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/privacyPolicy" element={<PrivacyPolicy />} />
           <Route path="/termsOfUse" element={<TermsOfUse />} />
+          <Route path="/login" element={<LoginContainer/>} />
         </Routes>
       </BrowserRouter>
     </div>
