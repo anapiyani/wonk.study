@@ -1,4 +1,5 @@
 @import '../../../assets/scss/variables.scss';
+@import '../../../assets/scss/mixin';
 
 .contact {
     width: 100%;
@@ -11,6 +12,21 @@
             display: flex;
             justify-content: space-between;
             padding: 0 130px;
+            @include media-xl {
+                flex-direction: column;
+                width: 100%;
+                padding: 0;
+            }
+            @include media-md {
+                padding: 0;
+                flex-direction: column;
+                padding: 0 20px;
+            }
+            @include media-sm {
+                padding: 0;
+                flex-direction: column;
+                padding: 0 20px;
+            }
             & .contact-texts {
                 & .contact-texts-default{
                     font-size: 20px;
@@ -27,10 +43,18 @@
                     font-size: 16px;
                     color: $text-black;
                     font-weight: 400;
-                    
                 }
             }
             & .contact-form {
+                @include media-xl {
+                    margin-top: 30px;
+                }
+                @include media-md {
+                    margin-top: 30px;
+                }
+                @include media-sm {
+                    margin-top: 30px;
+                }
                 & .form {
                     display: flex;
                     flex-direction: column;
@@ -39,6 +63,15 @@
                         width: 400px;
                         margin-bottom: 40px;
                         border-radius: 40px;
+                        @include media-xl {
+                            width: 100%;
+                        }
+                        @include media-md {
+                            width: 100%;
+                        }
+                        @include media-sm {
+                            width: 100%;
+                        }
                         &:hover {
                             border-color: $primary;
                         }
@@ -68,7 +101,15 @@
                         &:hover {
                             border-color: $primary;
                         }
-    
+                        @include media-xl {
+                            width: 100%;
+                        }
+                        @include media-md {
+                            width: 100%;
+                        }
+                        @include media-sm {
+                            width: 100%;
+                        }
                         .MuiOutlinedInput-root {
                             border-radius: 10px;
                             height: 100%;
