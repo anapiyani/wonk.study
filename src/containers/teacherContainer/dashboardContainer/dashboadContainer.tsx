@@ -7,7 +7,7 @@ const DashboardContainer = () => {
   const loading = useSelector((state: RootState) => state.info.isLoading);
   const iserror = useSelector((state: RootState) => state.info.isError);
 
-  return <TeacherDashboard />;
+  return <TeacherDashboard user={user} loading={loading} iserror={iserror} />;
 };
 
 export default DashboardContainer;
