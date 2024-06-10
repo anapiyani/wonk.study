@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEarthAsia } from "@fortawesome/free-solid-svg-icons";
@@ -6,12 +7,14 @@ import AppleIcon from "@mui/icons-material/Apple";
 import AndroidIcon from "@mui/icons-material/Android";
 import MenuIcon from "@mui/icons-material/Menu";
 import logotype from "../../../assets/logo_word.svg";
-import { Button } from "@mui/material";
-import { useState } from "react";
+import { Button, CircularProgress } from "@mui/material";
+import Modal from "../../UI/modal/modal";
 import "./welcomePage.scss";
 
 const WelcomePage = () => {
   const [onHide, setOnHide] = useState<boolean>(true);
+  const [modalApple, setModalApple] = useState<boolean>(false);
+  const [modalGoogle, setModalGoogle] = useState<boolean>(false);
 
   const onClickMenu = () => {
     if (onHide == false) {
@@ -19,6 +22,11 @@ const WelcomePage = () => {
     } else {
       setOnHide(false);
     }
+  };
+
+  const closeModal = () => {
+    setModalApple(false);
+    setModalGoogle(false);
   };
 
   return (
@@ -121,11 +129,29 @@ const WelcomePage = () => {
                       </p>
                     </div>
                     <div className="buttons">
-                      <button className="download">
-                        <AppleIcon /> iOS
+                      <button
+                        onClick={() => setModalApple(true)}
+                        className="download"
+                      >
+                        {modalApple ? (
+                          <CircularProgress />
+                        ) : (
+                          <div>
+                            <AppleIcon className="icon-download" /> IOS
+                          </div>
+                        )}
                       </button>
-                      <button className="download android">
-                        <AndroidIcon /> Android
+                      <button
+                        onClick={() => setModalGoogle(true)}
+                        className="download android"
+                      >
+                        {modalGoogle ? (
+                          <CircularProgress color="inherit" />
+                        ) : (
+                          <div>
+                            <AndroidIcon className="icon-download" /> Android
+                          </div>
+                        )}
                       </button>
                     </div>
                   </div>
@@ -152,6 +178,8 @@ const WelcomePage = () => {
           </div>
         </footer>
       </div>
+      {modalApple && <Modal icon={"apple"} closeModal={closeModal} />}
+      {modalGoogle && <Modal icon={"google"} closeModal={closeModal} />}
     </div>
   );
 };

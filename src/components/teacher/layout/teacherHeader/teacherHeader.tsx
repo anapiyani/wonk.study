@@ -20,7 +20,7 @@ const TeacherHeader = () => {
       <div className="container">
         <div className="teacher-header-content">
           <div className="teacher-header-content-left">
-            <NavLink to="/" className="logotype">
+            <NavLink to="/teacher-dashboard" className="logotype">
               <img src={logotype} alt="logotype" />
             </NavLink>
             <div className="choose-language">
@@ -37,7 +37,7 @@ const TeacherHeader = () => {
                 <BookOutlinedIcon />
                 <div>
                   Subjects
-                  <ArrowDropDownOutlinedIcon className="arrowDownIcon"/>
+                  <ArrowDropDownOutlinedIcon className="arrowDownIcon" />
                 </div>
               </NavLink>
               <NavLink to="/teacherSettings" className="teacher-nav-link">

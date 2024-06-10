@@ -60,9 +60,12 @@ const Login = (props: TProps) => {
               Forgot password?
             </Link>
             <Button className="send-button" type="submit" variant="contained">
-              Sign in
+              {props.isLoading ? (
+                <CircularProgress color="inherit" className="loading" />
+              ) : (
+                "Sign in"
+              )}
             </Button>
-            {props.isLoading ? <CircularProgress className="loading" /> : ""}
             {error ? (
               <Alert severity="error" className="loading">
                 {error}

@@ -10,6 +10,8 @@ const PrivateRoutes = () => {
 
   useEffect(() => {
     dispatch(accessPermission(token));
+    // Ich bekomme Kurse hier
+    // dispatch(getCoureses());
   }, [dispatch]);
 
   return token ? <Outlet /> : <Navigate to="/welcomePage" />;
