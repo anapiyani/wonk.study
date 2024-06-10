@@ -1,3 +1,5 @@
+@import "../../../assets/scss/variables.scss";
+
 .teacher-dashboard {
   margin: 0;
   width: 100%;
@@ -11,18 +13,105 @@
     margin: 0 auto;
     padding-top: 120px;
     padding-bottom: 120px;
+    gap: 20px;
     & .teacher-dashboard-header {
       display: flex;
       justify-content: space-between;
-      align-items: last baseline;
+      align-items: flex-end;
+
       & .teacher-dashboard-greeting {
         text-align: left;
+        margin-bottom: 0;
+        & h1 {
+          font-size: 36px;
+          color: $primary;
+        }
+        & h2 {
+          font-size: 20px;
+          font-weight: 400;
+          color: $text-black;
+          margin-bottom: 0;
+        }
       }
       & .teacher-dashboard-menu {
+        display: flex;
+        gap: 16px;
         & Button {
           gap: 8px;
+          width: 120px;
+          height: 75px;
+          background-color: white;
+          color: $primary;
+          border-radius: 10px;
+          border: 1px solid $purple-border-color;
+          font-size: 16px;
+          letter-spacing: 0;
+          font-weight: 400;
+          text-decoration: none;
+          align-items: center;
+          justify-content: center;
+          text-transform: capitalize;
         }
-        & .
+        & .feedIcon,
+        .gradeIcon {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+    & .teacher-main {
+      & .teacher-main-subjects-header {
+        // display: flex;
+        padding: 25px 0px 25px 30px;
+
+        & .teacher-main-subjects-header-inner {
+          display: flex;
+          align-items: center;
+          color: $primary;
+          gap: 10px;
+
+          & .bookLargeIcon {
+            width: 35px;
+            height: 35px;
+          }
+          & h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0;
+            color: $primary;
+          }
+        }
+      }
+
+      & .teacher-main-subjects {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+        & .teacher-main-subjects-listview {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 0px 30px 25px 30px;
+          
+
+          & .teacher-main-subjects-container {
+            height: 200px;
+            width: 100%;
+            max-width: 100%;
+            display: flex;
+            gap: 16px;
+          }
+
+          & .backArrow {
+
+            -moz-transform: scale(-1, 1);
+            -webkit-transform: scale(-1, 1);
+            -o-transform: scale(-1, 1);
+            -ms-transform: scale(-1, 1);
+            transform: scale(-1, 1);
+          }
+        }
       }
     }
   }
