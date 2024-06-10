@@ -5,8 +5,9 @@ import { AppDispatch } from "../store/store";
 import { accessPermission } from "../store/info.slice";
 
 const PrivateRoutes = () => {
-  const token: string | null = localStorage.getItem("accessToken");
   const dispatch = useDispatch<AppDispatch>();
+  const token: string | null = localStorage.getItem("accessToken");
+
   useEffect(() => {
     dispatch(accessPermission(token));
   });
