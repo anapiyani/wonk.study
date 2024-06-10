@@ -17,7 +17,7 @@ const LoginContainer = () => {
   useEffect(() => {
     if (isSucces) {
       dispatch(resetSuccess());
-      nagivate("/teacherDashboard");
+      nagivate("/teacher-dashboard");
     }
   }, [isSucces, isError, dispatch]);
 
