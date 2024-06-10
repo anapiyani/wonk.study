@@ -14,9 +14,7 @@ const TeacherDashboard = (props: TProps) => {
   return (
     <div className="teacher-dashboard">
       <TeacherHeader />
-      <div className="container">
-        
-      </div>
+      <div className="container"></div>
       <WelcomeFooter />
     </div>
   );
