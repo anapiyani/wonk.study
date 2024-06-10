@@ -1,4 +1,3 @@
-
 import WelcomeFooter from '../layout/welcomeFooter/welcomeFooter';
 import WelcomeHeader from '../layout/welcomeHeader/welcomeHeader';
 import TextField from '@mui/material/TextField';
@@ -25,6 +24,7 @@ const ContactUs = () => {
         sender_email: email,
         message: message,
       }
+      console.log('Message to send:', dataSend)
       dispatch(sendMessageEmail(dataSend))
     }
 
