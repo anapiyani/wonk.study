@@ -1,0 +1,40 @@
+@import '../../assets/scss/variables.scss';
+.not-found-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 140px 0;
+    width: 100%;
+    .page-not-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        h1 {
+            font-weight: 700;
+            font-size: 36px;
+            color: $primary;
+        }
+    }
+    .icon-not-found {
+        display: flex;
+        justify-content: center;
+        img {
+            width: 160px;
+            height: 195px;
+        }
+    }
+    .go-back {
+        display: flex;
+        justify-content: center;
+        margin-top: 60px;
+        .btn {
+            width: 350px;
+            height: 62px;
+            border: 1px solid $primary;
+            background-color: transparent;
+            border-radius: 30px;
+            color: $primary;
+            font-size: 15px;
+        }
+    }
+}

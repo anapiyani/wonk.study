@@ -7,12 +7,14 @@ import TermsOfUse from "./components/welcome/termsOfUse/termsOfUse";
 import LoginContainer from "./containers/loginContainer/loginContainer";
 import DashboardContainer from "./containers/teacherContainer/dashboardContainer/dashboadContainer";
 import PrivateRoutes from "./utils/privateRoutes";
+import NotFound from "./components/error/notFound";
 
 const App = () => {
   return (
     <div className="app">
       <BrowserRouter>
         <Routes>
+          <Route path="*" element={<NotFound />} />
           <Route path="/" element={<WelcomeContainer />}>
             <Route path="/welcomePage" element={<WelcomeContainer />} />
           </Route>
