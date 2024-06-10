@@ -7,7 +7,6 @@ import { FaRegNewspaper } from "react-icons/fa6";
 import { MdOutlineGrade } from "react-icons/md";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import historyCard from "../../../assets/subjectCards/techny-file-with-atom-icon.svg";
 import BookOutlinedIcon from "@mui/icons-material/BookOutlined";
 import SubjectCard from "../dashboard/teacherMain/subjectCard";
 
