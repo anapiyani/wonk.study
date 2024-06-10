@@ -9,9 +9,12 @@ import logotype from "../../../assets/logo_word.svg";
 import { Button } from "@mui/material";
 import { useState } from "react";
 import "./welcomePage.scss";
+import Modal from "../../UI/modal/modal";
 
 const WelcomePage = () => {
   const [onHide, setOnHide] = useState<boolean>(true);
+  const [modalApple, setModalApple] = useState<boolean>(false);
+  const [modalGoogle, setModalGoogle] = useState<boolean>(false);
 
   const onClickMenu = () => {
     if (onHide == false) {
@@ -19,6 +22,11 @@ const WelcomePage = () => {
     } else {
       setOnHide(false);
     }
+  };
+
+  const closeModal = () => {
+    setModalApple(false);
+    setModalGoogle(false);
   };
 
   return (
@@ -121,11 +129,17 @@ const WelcomePage = () => {
                       </p>
                     </div>
                     <div className="buttons">
-                      <button className="download">
-                        <AppleIcon /> iOS
+                      <button
+                        onClick={() => setModalApple(true)}
+                        className="download"
+                      >
+                        <AppleIcon className="icon-download" /> iOS
                       </button>
-                      <button className="download android">
-                        <AndroidIcon /> Android
+                      <button
+                        onClick={() => setModalGoogle(true)}
+                        className="download android"
+                      >
+                        <AndroidIcon className="icon-download" /> Android
                       </button>
                     </div>
                   </div>
@@ -152,6 +166,8 @@ const WelcomePage = () => {
           </div>
         </footer>
       </div>
+      {modalApple && <Modal icon={"apple"} closeModal={closeModal} />}
+      {modalGoogle && <Modal icon={"google"} closeModal={closeModal} />}
     </div>
   );
 };

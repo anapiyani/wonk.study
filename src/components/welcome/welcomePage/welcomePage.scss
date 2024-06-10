@@ -296,6 +296,9 @@
                   @include media-sm {
                     font-size: 13px;
                   }
+                  .icon-download {
+                    margin-right: 10px;
+                  }
                 }
                 & .android {
                     background-color: $primary;
