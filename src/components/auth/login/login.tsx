@@ -1,39 +1,36 @@
-import { Button, TextField } from "@mui/material";
+import { Alert, Button, CircularProgress, TextField } from "@mui/material";
 import WelcomeFooter from "../../welcome/layout/welcomeFooter/welcomeFooter";
 import WelcomeHeader from "../../welcome/layout/welcomeHeader/welcomeHeader";
-import { Link, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { TLoginUser } from "../../../types/types";
-import { AppDispatch, RootState } from "../../../store/store";
-import { useDispatch, useSelector } from "react-redux";
-import { loginPost, resetSuccess } from "../../../store/login.slice";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import "./login.scss";
 
 type TProps = {
   loginHandler: (email: string, password: string) => void;
   isError: string | null;
   isSuccess: boolean;
-  isLogin: boolean;
+  isLoading: boolean;
 };
 
 const Login = (props: TProps) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(props.isError);
+
+  useEffect(() => {
+    if (props.isError) {
+      setError(props.isError);
+      const timer = setTimeout(() => {
+        setError(null);
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [props.isError]);
 
   const loginHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     props.loginHandler(email, password);
   };
-
-  useEffect(() => {
-    if (props.isError) {
-      setError(props.isError);
-      setInterval(() => {
-        setError(null);
-      }, 2500);
-    }
-  });
 
   return (
     <div className="login">
@@ -65,6 +62,14 @@ const Login = (props: TProps) => {
             <Button className="send-button" type="submit" variant="contained">
               Sign in
             </Button>
+            {props.isLoading ? <CircularProgress className="loading" /> : ""}
+            {error ? (
+              <Alert severity="error" className="loading">
+                {error}
+              </Alert>
+            ) : (
+              ""
+            )}
           </form>
         </div>
       </div>

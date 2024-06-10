@@ -3,13 +3,13 @@ import axiosLogin from "../config/axiosLoginConfig";
 import { TLoginUser } from "../types/types";
 
 type TInitialState = {
-  isLogin: boolean;
+  isLoading: boolean;
   isError: string | null;
   isSuccess: boolean;
 };
 
 const initialState: TInitialState = {
-  isLogin: false,
+  isLoading: false,
   isError: null,
   isSuccess: false,
 };
@@ -23,28 +23,32 @@ export const loginPost = createAsyncThunk(
 );
 
 const loginSlice = createSlice({
-  name: "email",
+  name: "login",
   initialState,
   reducers: {
     resetSuccess(state) {
       state.isSuccess = false;
     },
+    resetError(state) {
+      state.isError = null;
+    },
   },
   extraReducers(builder) {
     builder
       .addCase(loginPost.pending, (state) => {
-        state.isLogin = true;
+        state.isLoading = true;
         state.isSuccess = false;
         state.isError = null;
       })
       .addCase(loginPost.rejected, (state, action) => {
-        state.isLogin = false;
+        state.isLoading = false;
         state.isSuccess = false;
         state.isError =
-          "Упс, какая-то ошибка. Попробуйте еще раз" || action.error.message;
+          "Упс, неправильный логин или пароль. Попробуйте ещё раз." ||
+          action.error.message;
       })
       .addCase(loginPost.fulfilled, (state, action) => {
-        state.isLogin = false;
+        state.isLoading = false;
         state.isSuccess = true;
         state.isError = null;
         const token = action.payload.access;
