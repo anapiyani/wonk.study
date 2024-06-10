@@ -2,7 +2,7 @@ import React from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import AppleIcon from "@mui/icons-material/Apple";
 import AndroidIcon from "@mui/icons-material/Android";
-import QRios from "../../../assets/apple.png";
+import QRios from "../../../assets/Apple.png";
 import QRandroid from "../../../assets/google-play.png";
 import "./modal.scss";
 
