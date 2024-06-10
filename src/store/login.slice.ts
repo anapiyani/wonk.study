@@ -6,12 +6,14 @@ type TInitialState = {
   isLoading: boolean;
   isError: string | null;
   isSuccess: boolean;
+  token: string | null;
 };
 
 const initialState: TInitialState = {
   isLoading: false,
   isError: null,
   isSuccess: false,
+  token: null,
 };
 
 export const loginPost = createAsyncThunk(
@@ -21,6 +23,20 @@ export const loginPost = createAsyncThunk(
     return response.data;
   }
 );
+
+// ich werde dann kriechen während ich mache private seiten
+// export const accessPermission = createAsyncThunk(
+//   "login/accessPermission",
+//   async () => {
+//     const token = localStorage.getItem("acessToken");
+//     const response = await axiosLogin.post("/users/user-by-token/", {
+//       headers: {
+//         Authorization: `Bearer ${token}`,
+//       },
+//     });
+//     console.log(response.data);
+//   }
+// );
 
 const loginSlice = createSlice({
   name: "login",
@@ -52,6 +68,7 @@ const loginSlice = createSlice({
         if (token) {
           localStorage.setItem("accessToken", token);
         }
+        state.token = token;
       });
   },
 });
