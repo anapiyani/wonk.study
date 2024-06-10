@@ -2,6 +2,10 @@ import { NavLink, useNavigate } from "react-router-dom";
 import logotype from "../../../../assets/logo_word.svg";
 import "./teacherHeader.scss";
 import { Button } from "@mui/material";
+import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
+import BookOutlinedIcon from "@mui/icons-material/BookOutlined";
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
 
 const TeacherHeader = () => {
   const navigate = useNavigate();
@@ -25,14 +29,20 @@ const TeacherHeader = () => {
           </div>
           <div className="teacher-header-content-right">
             <div className="teacher-nav">
-              <NavLink to="/teacherDashboard" className="teacher-nav-link">
-                <p>Dashboard</p>
+              <NavLink to="/teacher-dashboard" className="teacher-nav-link">
+                <DashboardOutlinedIcon />
+                Main
               </NavLink>
-              <NavLink to="/teacherCourses" className="teacher-nav-link">
-                <p>Courses</p>
+              <NavLink to="/teacherSubjects" className="teacher-nav-link">
+                <BookOutlinedIcon />
+                <div>
+                  Subjects
+                  <ArrowDropDownOutlinedIcon className="arrowDownIcon"/>
+                </div>
               </NavLink>
               <NavLink to="/teacherSettings" className="teacher-nav-link">
-                <p>Settings</p>
+                <SettingsOutlinedIcon />
+                Settings
               </NavLink>
             </div>
             <Button
