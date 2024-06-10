@@ -1,0 +1,31 @@
+@import "../../../../assets/scss/variables.scss";
+
+.subject-card {
+  height: 186px;
+  width: 150px;
+
+  & .subject-card-content {
+    display: flex;
+    height: 150px;
+    width: 150px;
+    border-radius: 20px;
+    border: solid white;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+
+    & .subject-card-body {
+      width: 80%;
+      height: 80%;
+      background-color: #a0a4ff;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      & img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+}
