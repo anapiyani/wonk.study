@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axiosLogin from "../config/axiosLoginConfig";
+import axiosWonk from "../config/axiosWonk";
 import { TLoginUser } from "../types/types";
 
 type TInitialState = {
@@ -19,24 +19,10 @@ const initialState: TInitialState = {
 export const loginPost = createAsyncThunk(
   "login/loginPost",
   async (body: TLoginUser) => {
-    const response = await axiosLogin.post("/users/user/login/", body);
+    const response = await axiosWonk.post("/users/user/login/", body);
     return response.data;
   }
 );
-
-// ich werde dann kriechen während ich mache private seiten
-// export const accessPermission = createAsyncThunk(
-//   "login/accessPermission",
-//   async () => {
-//     const token = localStorage.getItem("acessToken");
-//     const response = await axiosLogin.post("/users/user-by-token/", {
-//       headers: {
-//         Authorization: `Bearer ${token}`,
-//       },
-//     });
-//     console.log(response.data);
-//   }
-// );
 
 const loginSlice = createSlice({
   name: "login",

@@ -5,6 +5,7 @@ import { Button } from "@mui/material";
 
 const TeacherHeader = () => {
   const navigate = useNavigate();
+
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
     navigate("/welcomePage");
