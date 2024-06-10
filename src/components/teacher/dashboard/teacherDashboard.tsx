@@ -1,5 +1,4 @@
 import WelcomeFooter from "../../welcome/layout/welcomeFooter/welcomeFooter";
-import WelcomeHeader from "../../welcome/layout/welcomeHeader/welcomeHeader";
 import TeacherHeader from "../layout/teacherHeader/teacherHeader";
 import "./teacherDashboard.scss";
 
