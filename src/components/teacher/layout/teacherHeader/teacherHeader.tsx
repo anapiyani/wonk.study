@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import logotype from "../../../../assets/logo_word.svg";
 import "./teacherHeader.scss";
 
-const WelcomeHeader = () => {
+const TeacherHeader = () => {
   return (
     <header className="teacher-header">
       <div className="container">
@@ -35,4 +35,4 @@ const WelcomeHeader = () => {
   );
 };
 
-export default WelcomeHeader;
+export default TeacherHeader;
