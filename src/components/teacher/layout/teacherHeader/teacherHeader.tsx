@@ -1,9 +1,15 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import logotype from "../../../../assets/logo_word.svg";
 import "./teacherHeader.scss";
 import { Button } from "@mui/material";
 
 const TeacherHeader = () => {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+    navigate("/welcomePage");
+  };
+
   return (
     <header className="teacher-header">
       <div className="container">
@@ -28,7 +34,12 @@ const TeacherHeader = () => {
                 <p>Settings</p>
               </NavLink>
             </div>
-            <Button className="logout-btn" type="submit" variant="contained">
+            <Button
+              onClick={handleLogout}
+              className="logout-btn"
+              type="submit"
+              variant="contained"
+            >
               Log out
             </Button>
           </div>
