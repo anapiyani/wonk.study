@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEarthAsia } from "@fortawesome/free-solid-svg-icons";
@@ -6,10 +7,9 @@ import AppleIcon from "@mui/icons-material/Apple";
 import AndroidIcon from "@mui/icons-material/Android";
 import MenuIcon from "@mui/icons-material/Menu";
 import logotype from "../../../assets/logo_word.svg";
-import { Button } from "@mui/material";
-import { useState } from "react";
-import "./welcomePage.scss";
+import { Button, CircularProgress } from "@mui/material";
 import Modal from "../../UI/modal/modal";
+import "./welcomePage.scss";
 
 const WelcomePage = () => {
   const [onHide, setOnHide] = useState<boolean>(true);
@@ -133,13 +133,25 @@ const WelcomePage = () => {
                         onClick={() => setModalApple(true)}
                         className="download"
                       >
-                        <AppleIcon className="icon-download" /> iOS
+                        {modalApple ? (
+                          <CircularProgress />
+                        ) : (
+                          <div>
+                            <AppleIcon className="icon-download" /> IOS
+                          </div>
+                        )}
                       </button>
                       <button
                         onClick={() => setModalGoogle(true)}
                         className="download android"
                       >
-                        <AndroidIcon className="icon-download" /> Android
+                        {modalGoogle ? (
+                          <CircularProgress color="inherit" />
+                        ) : (
+                          <div>
+                            <AndroidIcon className="icon-download" /> Android
+                          </div>
+                        )}
                       </button>
                     </div>
                   </div>
