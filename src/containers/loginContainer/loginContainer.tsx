@@ -7,14 +7,6 @@ import { AppDispatch, RootState } from "../../store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { loginPost, resetSuccess } from "../../store/login.slice";
 
-import {
-  Alert,
-  CircularProgress,
-  IconButton,
-  InputAdornment,
-} from "@mui/material";
-
-//as props functions, selectors
 const LoginContainer = () => {
   const dispatch: AppDispatch = useDispatch();
   const [error, setError] = useState<string | null>(null);
@@ -25,12 +17,12 @@ const LoginContainer = () => {
 
   useEffect(() => {
     if (isSucces) {
-        dispatch(resetSuccess());
-        nagivate("/teacherDashboard");
+      dispatch(resetSuccess());
+      nagivate("/teacherDashboard");
     }
   }, [isSucces, isError, dispatch]);
 
-  const loginHandler = (email:string, password:string) => {
+  const loginHandler = (email: string, password: string) => {
     const loginData: TLoginUser = {
       email: email,
       password: password,
@@ -38,10 +30,10 @@ const LoginContainer = () => {
     dispatch(loginPost(loginData));
   };
 
-
   return (
     <div className="login-container">
-      <Login loginHandler={loginHandler}
+      <Login
+        loginHandler={loginHandler}
         isError={isError}
         isLogin={isLogin}
         isSuccess={isSucces}

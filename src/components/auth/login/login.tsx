@@ -7,21 +7,11 @@ import { TLoginUser } from "../../../types/types";
 import { AppDispatch, RootState } from "../../../store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { loginPost, resetSuccess } from "../../../store/login.slice";
-
 import "./login.scss";
-import {
-  Alert,
-  CircularProgress,
-  IconButton,
-  InputAdornment,
-} from "@mui/material";
-// import { fetchUserData } from "../../../store/user.slice";
 
 type TProps = {
   loginHandler: (email: string, password: string) => void;
   isError: string | null;
-  // showPassword: boolean;
-  // handleClickShowPassword: () => void;
   isSuccess: boolean;
   isLogin: boolean;
 };
