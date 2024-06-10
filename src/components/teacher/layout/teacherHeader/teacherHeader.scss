@@ -57,14 +57,19 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 30px;
       & .teacher-nav {
         margin-right: 0;
         display: flex;
         justify-content: space-between;
         gap: 30px;
         cursor: pointer;
+        & .teacher-nav-link {
+            text-decoration: none;
+        }
         & p {
-          font-size: 18px;
+            font-size: 12px;
+            font-weight: 400;
           &.active {
             color: $primary;
             font-weight: 600;
@@ -73,6 +78,22 @@
             font-size: 14px;
           }
         }
+      }
+      & .logout-btn {
+        width: 120px;
+        height: 50px;
+        background-color: white;
+        color: $text-black;
+        border-radius: 40px;
+        border: 1px solid $text-black;
+        font-size: 16px;
+        letter-spacing: 0;
+        font-weight: 500;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: capitalize;
       }
     }
 

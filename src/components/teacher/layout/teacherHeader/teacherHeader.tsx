@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import logotype from "../../../../assets/logo_word.svg";
 import "./teacherHeader.scss";
+import { Button } from "@mui/material";
 
 const TeacherHeader = () => {
   return (
@@ -27,7 +28,9 @@ const TeacherHeader = () => {
                 <p>Settings</p>
               </NavLink>
             </div>
-            <div className="logout-btn"></div>
+            <Button className="logout-btn" type="submit" variant="contained">
+              Log out
+            </Button>
           </div>
         </div>
       </div>
