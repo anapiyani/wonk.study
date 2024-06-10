@@ -15,7 +15,7 @@ const initialState: TStateInitial = {
 };
 
 export const accessPermission = createAsyncThunk(
-  "login/accessPermission",
+  "info/accessPermission",
   async (token: string | null) => {
     const response = await axiosWonk.get("/users/user-by-token/", {
       headers: {
@@ -25,6 +25,17 @@ export const accessPermission = createAsyncThunk(
     return response.data;
   }
 );
+
+// Wir müssen die Kurse erhalten, um sie alle in ein State zu bringen und auf der Seite zu zeigen
+// export const getCoureses = createAsyncThunk("info/getCourses", async () => {
+//   const token = localStorage.getItem("accessToken");
+//   const response = await axiosWonk.get("/courses/list/", {
+//     headers: {
+//       Authorization: `Bearer ${token}`,
+//     },
+//   });
+//   console.log(response.data);
+// });
 
 const infoSlice = createSlice({
   name: "info",
