@@ -5,7 +5,6 @@ import { TLoginUser } from "../../types/types";
 import { AppDispatch, RootState } from "../../store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { loginPost, resetSuccess } from "../../store/login.slice";
-import "./loginContainer.scss";
 
 const LoginContainer = () => {
   const dispatch: AppDispatch = useDispatch();
