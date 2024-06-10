@@ -1,7 +1,7 @@
 import Login from "../../components/auth/login/login";
 import "./loginContainer.scss";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { TLoginUser } from "../../types/types";
 import { AppDispatch, RootState } from "../../store/store";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,10 +9,9 @@ import { loginPost, resetSuccess } from "../../store/login.slice";
 
 const LoginContainer = () => {
   const dispatch: AppDispatch = useDispatch();
-  const [error, setError] = useState<string | null>(null);
   const nagivate = useNavigate();
   const isSucces = useSelector((state: RootState) => state.login.isSuccess);
-  const isLogin = useSelector((state: RootState) => state.login.isLogin);
+  const isLoading = useSelector((state: RootState) => state.login.isLoading);
   const isError = useSelector((state: RootState) => state.login.isError);
 
   useEffect(() => {
@@ -35,7 +34,7 @@ const LoginContainer = () => {
       <Login
         loginHandler={loginHandler}
         isError={isError}
-        isLogin={isLogin}
+        isLoading={isLoading}
         isSuccess={isSucces}
       />
     </div>

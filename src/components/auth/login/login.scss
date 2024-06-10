@@ -82,3 +82,13 @@
         }
     }
 }
+
+.loading {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    margin-top: 10px;
+    text-align: center;
+}
