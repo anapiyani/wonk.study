@@ -1,11 +1,11 @@
 import Login from "../../components/auth/login/login";
-import "./loginContainer.scss";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { TLoginUser } from "../../types/types";
 import { AppDispatch, RootState } from "../../store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { loginPost, resetSuccess } from "../../store/login.slice";
+import "./loginContainer.scss";
 
 const LoginContainer = () => {
   const dispatch: AppDispatch = useDispatch();
