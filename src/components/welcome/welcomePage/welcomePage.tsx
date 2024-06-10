@@ -1,15 +1,14 @@
 import { NavLink, Link } from "react-router-dom";
-import logotype from "../../../assets/logo_word.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEarthAsia } from "@fortawesome/free-solid-svg-icons";
 import AppShortcutIcon from "@mui/icons-material/AppShortcut";
-import AppleIcon from '@mui/icons-material/Apple';
-import AndroidIcon from '@mui/icons-material/Android';
-import MenuIcon from '@mui/icons-material/Menu';
-
-import "./welcomePage.scss";
+import AppleIcon from "@mui/icons-material/Apple";
+import AndroidIcon from "@mui/icons-material/Android";
+import MenuIcon from "@mui/icons-material/Menu";
+import logotype from "../../../assets/logo_word.svg";
 import { Button } from "@mui/material";
 import { useState } from "react";
+import "./welcomePage.scss";
 
 const WelcomePage = () => {
   const [onHide, setOnHide] = useState<boolean>(true);
@@ -20,7 +19,7 @@ const WelcomePage = () => {
     } else {
       setOnHide(false);
     }
-  }
+  };
 
   return (
     <div className="welcome-page">
@@ -33,14 +32,28 @@ const WelcomePage = () => {
                   <img src={logotype} alt="wonkAi" />
                 </NavLink>
               </div>
-              <Button onClick={onClickMenu} className="menu-icon"><MenuIcon/></Button>
-              <div className={`menu ${onHide ? 'hide' : 'show'}`}>  
+              <Button onClick={onClickMenu} className="menu-icon">
+                <MenuIcon />
+              </Button>
+              <div className={`menu ${onHide ? "hide" : "show"}`}>
                 <div className="menu-content">
-                    <ul>
-                      <li><NavLink className="nav-links" to="/"><Button className="nav-link-buttons">Home</Button></NavLink></li>
-                      <li><NavLink className="nav-links" to="/aboutUs"><Button className="nav-link-buttons">About</Button></NavLink></li>
-                      <li><NavLink className="nav-links" to="/contact"><Button className="nav-link-buttons">Contacts</Button></NavLink></li>
-                    </ul>
+                  <ul>
+                    <li>
+                      <NavLink className="nav-links" to="/">
+                        <Button className="nav-link-buttons">Home</Button>
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink className="nav-links" to="/aboutUs">
+                        <Button className="nav-link-buttons">About</Button>
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink className="nav-links" to="/contact">
+                        <Button className="nav-link-buttons">Contacts</Button>
+                      </NavLink>
+                    </li>
+                  </ul>
                 </div>
               </div>
               <nav className="navs">
@@ -90,7 +103,9 @@ const WelcomePage = () => {
                       </p>
                     </div>
                     <div className="buttons top">
-                      <Link to='/login'><button className="signUp">Log in</button></Link>
+                      <Link to="/login">
+                        <button className="signUp">Log in</button>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -106,8 +121,12 @@ const WelcomePage = () => {
                       </p>
                     </div>
                     <div className="buttons">
-                      <button className="download"><AppleIcon /> iOS</button>
-                      <button className="download android"><AndroidIcon /> Android</button>
+                      <button className="download">
+                        <AppleIcon /> iOS
+                      </button>
+                      <button className="download android">
+                        <AndroidIcon /> Android
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -119,8 +138,12 @@ const WelcomePage = () => {
           <div className="container">
             <div className="footer-content">
               <div className="footer-left">
-                <Link to="/privacyPolicy" className="footerLink">Privacy Policy</Link>
-                <Link to="/termsOfUse" className="footerLink">Terms of Use</Link>
+                <Link to="/privacyPolicy" className="footerLink">
+                  Privacy Policy
+                </Link>
+                <Link to="/termsOfUse" className="footerLink">
+                  Terms of Use
+                </Link>
               </div>
               <div className="footer-right">
                 <p>&copy; 2024 Wonk | All rights reserved.</p>
@@ -128,7 +151,6 @@ const WelcomePage = () => {
             </div>
           </div>
         </footer>
-        
       </div>
     </div>
   );
