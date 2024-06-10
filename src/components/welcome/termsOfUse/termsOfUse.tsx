@@ -1,6 +1,6 @@
-import "./termsOfUse.scss";
 import WelcomeFooter from "../layout/welcomeFooter/welcomeFooter";
 import WelcomeHeader from "../layout/welcomeHeader/welcomeHeader";
+import "./termsOfUse.scss";
 
 const TermsOfUse = () => {
   return (
