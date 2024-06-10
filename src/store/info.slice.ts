@@ -1,7 +1,18 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axiosWonk from "../config/axiosWonk";
+import { TUserInfo } from "../types/types";
 
-const initialState = {};
+type TStateInitial = {
+  user: TUserInfo | null;
+  isLoading: boolean;
+  isError: string | null;
+};
+
+const initialState: TStateInitial = {
+  user: null,
+  isLoading: false,
+  isError: null,
+};
 
 export const accessPermission = createAsyncThunk(
   "login/accessPermission",
@@ -11,7 +22,7 @@ export const accessPermission = createAsyncThunk(
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log(response.data);
+    return response.data;
   }
 );
 
@@ -19,6 +30,25 @@ const infoSlice = createSlice({
   name: "info",
   initialState,
   reducers: {},
+  extraReducers(builder) {
+    builder
+      .addCase(accessPermission.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(accessPermission.rejected, (state, action) => {
+        state.isError =
+          "Ошибка при получении данных, попробуйте перезагрузить страницу!" ||
+          action.error.message;
+      })
+      .addCase(
+        accessPermission.fulfilled,
+        (state, action: PayloadAction<TUserInfo>) => {
+          state.user = action.payload;
+          state.isLoading = false;
+          state.isError = null;
+        }
+      );
+  },
 });
 
 export default infoSlice.reducer;
