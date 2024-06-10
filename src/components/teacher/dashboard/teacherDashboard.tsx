@@ -2,7 +2,7 @@ import { TUserInfo } from "../../../types/types";
 import WelcomeFooter from "../../welcome/layout/welcomeFooter/welcomeFooter";
 import TeacherHeader from "../layout/teacherHeader/teacherHeader";
 import "./teacherDashboard.scss";
-import { Button } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 import { FaRegNewspaper } from "react-icons/fa6";
 import { MdOutlineGrade } from "react-icons/md";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
@@ -17,9 +17,9 @@ const TeacherDashboard = (props: TProps) => {
   return (
     <div className="teacher-dashboard">
       <TeacherHeader />
-
       <div className="container">
         <div className="teacher-dashboard-content">
+          {props.loading ? <CircularProgress className="loading" /> : ""}
           <div className="teacher-dashboard-header">
             <div className="teacher-dashboard-greeting">
               <h1>
