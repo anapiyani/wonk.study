@@ -6,6 +6,8 @@ import PrivacyPolicy from "./components/welcome/policy/privacyPolicy";
 import TermsOfUse from "./components/welcome/termsOfUse/termsOfUse";
 import LoginContainer from "./containers/loginContainer/loginContainer";
 import DashboardContainer from "./containers/teacherContainer/dashboardContainer/dashboadContainer";
+import PrivateRoutes from "./utils/privateRoutes";
+import TeacherDashboard from "./components/teacher/dashboard/teacherDashboard";
 
 const App = () => {
   return (
@@ -20,6 +22,9 @@ const App = () => {
           <Route path="/privacyPolicy" element={<PrivacyPolicy />} />
           <Route path="/termsOfUse" element={<TermsOfUse />} />
           <Route path="/login" element={<LoginContainer />} />
+          <Route element={<PrivateRoutes />}>
+            <Route path="/teacher-dashboard" element={<TeacherDashboard />} />
+          </Route>
           <Route path="/teacher-dashboard" element={<DashboardContainer />} />
         </Routes>
       </BrowserRouter>
