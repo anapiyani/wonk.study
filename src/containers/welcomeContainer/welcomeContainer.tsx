@@ -1,5 +1,4 @@
 import WelcomePage from "../../components/welcome/welcomePage/welcomePage";
-import "./welcomeContainer.scss";
 
 const WelcomeContainer = () => {
   return (
