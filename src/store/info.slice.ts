@@ -8,6 +8,8 @@ type TStateInitial = {
   isError: string | null;
   courses: TCoureses[];
   classes: TClasses[];
+  errorOnChange: string | null;
+  loadingChange: boolean;
 };
 
 const initialState: TStateInitial = {
@@ -16,6 +18,8 @@ const initialState: TStateInitial = {
   isError: null,
   courses: [],
   classes: [],
+  errorOnChange: null,
+  loadingChange: false,
 };
 
 export const accessPermission = createAsyncThunk(
@@ -114,7 +118,13 @@ const infoSlice = createSlice({
         (state, action: PayloadAction<TCoureses[]>) => {
           state.courses = action.payload;
         }
-      );
+      )
+      .addCase(changePassword.pending, (state) => {})
+      .addCase(changePassword.rejected, (state) => {})
+      .addCase(changePassword.fulfilled, (state, action) => {})
+      .addCase(changeEmail.pending, (state) => {})
+      .addCase(changeEmail.pending, (state) => {})
+      .addCase(changeEmail.pending, (state, action) => {});
   },
 });
 
