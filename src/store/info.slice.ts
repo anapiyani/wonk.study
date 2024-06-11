@@ -1,12 +1,13 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axiosWonk from "../config/axiosWonk";
-import { TCoureses, TUserInfo } from "../types/types";
+import { TClasses, TCoureses, TUserInfo } from "../types/types";
 
 type TStateInitial = {
   user: TUserInfo | null;
   isLoading: boolean;
   isError: string | null;
   courses: TCoureses[];
+  classes: TClasses[];
 };
 
 const initialState: TStateInitial = {
@@ -14,6 +15,7 @@ const initialState: TStateInitial = {
   isLoading: false,
   isError: null,
   courses: [],
+  classes: [],
 };
 
 export const accessPermission = createAsyncThunk(
