@@ -14,6 +14,7 @@ const SettingsContainer = () => {
   const user = useSelector((state: RootState) => state.info.user);
   const courses = useSelector((state: RootState) => state.info.courses);
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [showNewPassword, setShowNewPassword] = useState<boolean>(false);
   const dispatch = useDispatch<AppDispatch>();
   const changeSuccess = useSelector(
     (state: RootState) => state.info.successChange
@@ -71,6 +72,13 @@ const SettingsContainer = () => {
     }
   };
 
+  const newhandleClickShowPassword = () => {
+    if (!showNewPassword) {
+      setShowNewPassword(true);
+    } else {
+      setShowNewPassword(false);
+    }
+  };
   return (
     <Settings
       user={user}
@@ -82,6 +90,8 @@ const SettingsContainer = () => {
       updatePassword={updatePassword}
       showPassword={showPassword}
       handleClickShowPassword={handleShowPassword}
+      newhandleClickShowPassword={newhandleClickShowPassword}
+      showNewPassword={showNewPassword}
     />
   );
 };

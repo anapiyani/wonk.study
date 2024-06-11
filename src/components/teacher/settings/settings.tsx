@@ -28,6 +28,8 @@ type TProps = {
   ) => void;
   showPassword: boolean;
   handleClickShowPassword: () => void;
+  newhandleClickShowPassword: () => void;
+  showNewPassword: boolean;
 };
 
 const Settings = (props: TProps) => {
@@ -131,7 +133,7 @@ const Settings = (props: TProps) => {
                       className="inputs"
                       label="Old password"
                       variant="outlined"
-                      onChange={(e) => setNewPassword(e.target.value)}
+                      onChange={(e) => setOldPassword(e.target.value)}
                       InputProps={{
                         endAdornment: (
                           <InputAdornment position="end">
@@ -153,7 +155,7 @@ const Settings = (props: TProps) => {
                     />
                     <TextField
                       required
-                      type={props.showPassword ? "text" : "password"}
+                      type={props.showNewPassword ? "text" : "password"}
                       className="inputs"
                       label="New password"
                       variant="outlined"
@@ -163,11 +165,11 @@ const Settings = (props: TProps) => {
                           <InputAdornment position="end">
                             <IconButton
                               aria-label="toggle password visibility"
-                              onClick={props.handleClickShowPassword}
+                              onClick={props.newhandleClickShowPassword}
                               onMouseDown={handleMouseDownPassword}
                               edge="end"
                             >
-                              {props.showPassword ? (
+                              {props.showNewPassword ? (
                                 <VisibilityOutlinedIcon />
                               ) : (
                                 <VisibilityOffOutlinedIcon />
