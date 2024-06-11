@@ -7,6 +7,7 @@ import { MdOutlineGrade } from "react-icons/md";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import BookOutlinedIcon from "@mui/icons-material/BookOutlined";
+import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SubjectCard from "../dashboard/teacherMain/subjectCard";
 import "./teacherDashboard.scss";
 
@@ -20,7 +21,7 @@ type TProps = {
 const TeacherDashboard = (props: TProps) => {
   return (
     <div className="teacher-dashboard">
-      <TeacherHeader />
+      <TeacherHeader courses={props.courses} />
       <div className="container">
         <div className="teacher-dashboard-content">
           {props.loading ? <CircularProgress className="loading" /> : ""}
@@ -73,6 +74,33 @@ const TeacherDashboard = (props: TProps) => {
                 <ArrowBackIosNewIcon className="backArrow" />
               </div>
             </div>
+            {/* hier es ist notwendig, ein anderes hinzuzufügen, aber als idk */}
+            {/* <div className="teacher-main-subjects">
+              <div className="teacher-main-subjects-header">
+                <div className="teacher-main-subjects-header-inner">
+                  <PersonOutlinedIcon className="bookLargeIcon" />
+                  <h2>Students</h2>
+                </div>
+              </div>
+              <div className="teacher-main-subjects-listview">
+                <ArrowBackIosNewIcon />
+                <div className="teacher-main-subjects-container">
+                  {props.courses.length > 0 ? (
+                    props.courses.map((item) => (
+                      <SubjectCard
+                        key={item.id}
+                        id={item.id}
+                        course_img={item.course_img}
+                        name={item.name}
+                      />
+                    ))
+                  ) : (
+                    <p>There is no subjects yet...</p>
+                  )}
+                </div>
+                <ArrowBackIosNewIcon className="backArrow" />
+              </div>
+            </div> */}
           </div>
         </div>
       </div>

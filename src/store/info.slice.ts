@@ -38,6 +38,17 @@ export const getCoureses = createAsyncThunk("info/getCourses", async () => {
   return response.data;
 });
 
+export const getClasses = createAsyncThunk("info/getClasses", async () => {
+  const token = localStorage.getItem("accessToken");
+  const response = await axiosWonk.get("", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  console.log(response.data);
+  return response.data;
+});
+
 const infoSlice = createSlice({
   name: "info",
   initialState,

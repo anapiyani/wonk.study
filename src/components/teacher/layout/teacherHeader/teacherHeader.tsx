@@ -8,8 +8,13 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
 import LogOutModal from "../../../UI/logOutModal/logOutModal";
 import { useState } from "react";
+import SubjectsModal from "../../../UI/subjectsModal/subjectsModal";
+import { TCoureses } from "../../../../types/types";
 
-const TeacherHeader = () => {
+type TProps = {
+  courses: TCoureses[];
+};
+const TeacherHeader = (props: TProps) => {
   const [logOutModal, setLogOutModal] = useState<boolean>(false);
 
   const handleOpenModalLogOut = () => {
@@ -19,6 +24,9 @@ const TeacherHeader = () => {
       setLogOutModal(true);
     }
   };
+
+  const openModalSubjects = () => {};
+
   return (
     <header className="teacher-header">
       <div className="container">
@@ -37,13 +45,13 @@ const TeacherHeader = () => {
                 <DashboardOutlinedIcon />
                 Main
               </NavLink>
-              <NavLink to="/teacherSubjects" className="teacher-nav-link">
+              <a onClick={openModalSubjects} className="teacher-nav-link">
                 <BookOutlinedIcon />
                 <div>
                   Subjects
                   <ArrowDropDownOutlinedIcon className="arrowDownIcon" />
                 </div>
-              </NavLink>
+              </a>
               <NavLink to="/teacherSettings" className="teacher-nav-link">
                 <SettingsOutlinedIcon />
                 Settings
@@ -65,6 +73,7 @@ const TeacherHeader = () => {
       ) : (
         ""
       )}
+      <SubjectsModal courses={props.courses} />
     </header>
   );
 };
