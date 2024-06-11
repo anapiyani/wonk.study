@@ -8,6 +8,7 @@ import LoginContainer from "./containers/loginContainer/loginContainer";
 import DashboardContainer from "./containers/teacherContainer/dashboardContainer/dashboadContainer";
 import PrivateRoutes from "./utils/privateRoutes";
 import NotFound from "./components/error/notFound";
+import SettingsContainer from "./containers/teacherSettings/teacherSettingsContainer";
 
 const App = () => {
   return (
@@ -25,8 +26,10 @@ const App = () => {
           <Route path="/login" element={<LoginContainer />} />
           <Route element={<PrivateRoutes />}>
             <Route path="/teacher-dashboard" element={<DashboardContainer />} />
+            <Route path="/settings" element={<SettingsContainer />} />
           </Route>
           <Route path="/teacher-dashboard" element={<DashboardContainer />} />
+          <Route path="/settings" element={<SettingsContainer />} />
         </Routes>
       </BrowserRouter>
     </div>

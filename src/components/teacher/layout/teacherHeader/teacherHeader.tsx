@@ -59,7 +59,7 @@ const TeacherHeader = (props: TProps) => {
                   <ArrowDropDownOutlinedIcon className="arrowDownIcon" />
                 </div>
               </a>
-              <NavLink to="/teacherSettings" className="teacher-nav-link">
+              <NavLink to="/settings" className="teacher-nav-link">
                 <SettingsOutlinedIcon />
                 Settings
               </NavLink>

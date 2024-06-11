@@ -10,6 +10,9 @@ import BookOutlinedIcon from "@mui/icons-material/BookOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SubjectCard from "../dashboard/teacherMain/subjectCard";
 import "./teacherDashboard.scss";
+import { Person } from "@mui/icons-material";
+// import ClassCard from "./teacherMain/classCard";
+
 
 type TProps = {
   user: TUserInfo | null;
@@ -48,6 +51,8 @@ const TeacherDashboard = (props: TProps) => {
             </div>
           </div>
           <div className="teacher-main">
+            {" "}
+            {/*where subjects and students will be displayed*/}
             <div className="teacher-main-subjects">
               <div className="teacher-main-subjects-header">
                 <div className="teacher-main-subjects-header-inner">
@@ -75,19 +80,19 @@ const TeacherDashboard = (props: TProps) => {
               </div>
             </div>
             {/* hier es ist notwendig, ein anderes hinzuzufügen, aber als idk */}
-            {/* <div className="teacher-main-subjects">
-              <div className="teacher-main-subjects-header">
-                <div className="teacher-main-subjects-header-inner">
+            {/* <div className="teacher-main-students">
+              <div className="teacher-main-students-header">
+                <div className="teacher-main-students-header-inner">
                   <PersonOutlinedIcon className="bookLargeIcon" />
                   <h2>Students</h2>
                 </div>
               </div>
-              <div className="teacher-main-subjects-listview">
+              <div className="teacher-main-students-listview">
                 <ArrowBackIosNewIcon />
-                <div className="teacher-main-subjects-container">
+                <div className="teacher-main-students-container">   
                   {props.courses.length > 0 ? (
                     props.courses.map((item) => (
-                      <SubjectCard
+                      <ClassCard
                         key={item.id}
                         id={item.id}
                         course_img={item.course_img}
