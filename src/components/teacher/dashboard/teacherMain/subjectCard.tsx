@@ -8,8 +8,12 @@ type TProps = {
 };
 
 const SubjectCard = (props: TProps) => {
+  const handleClickSubject = () => {
+    console.log(`clicked to  ${props.name} ${props.id}`);
+  };
+
   return (
-    <div className="subject-card">
+    <div onClick={handleClickSubject} className="subject-card">
       <div className="subject-card-content">
         <div className="subject-card-body">
           {/* I put the history image if there is no images... so we'll out real images when it comes */}
