@@ -51,6 +51,42 @@ export const getClasses = createAsyncThunk("info/getClasses", async () => {
   return response.data;
 });
 
+export const changePassword = createAsyncThunk(
+  "info/changePassword",
+  async (newPassword: string) => {
+    const token = localStorage.getItem("accessToken");
+    const response = await axiosWonk.put(
+      "/users/user/change-password/",
+      newPassword,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    console.log(response.data);
+    return response.data;
+  }
+);
+
+export const changeEmail = createAsyncThunk(
+  "info/changeEmail",
+  async (newEmail: string) => {
+    const token = localStorage.getItem("accessToken");
+    const response = await axiosWonk.put(
+      "/users/user/change-email/",
+      newEmail,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    console.log(response.data);
+    return response.data;
+  }
+);
+
 const infoSlice = createSlice({
   name: "info",
   initialState,
