@@ -35,3 +35,5 @@ export type TCoureses = {
   course_img: null | string;
   name: string;
 };
+
+export type TClasses = {};

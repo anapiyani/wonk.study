@@ -1,12 +1,15 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axiosWonk from "../config/axiosWonk";
-import { TCoureses, TUserInfo } from "../types/types";
+import { TClasses, TCoureses, TUserInfo } from "../types/types";
 
 type TStateInitial = {
   user: TUserInfo | null;
   isLoading: boolean;
   isError: string | null;
   courses: TCoureses[];
+  classes: TClasses[];
+  errorOnChange: string | null;
+  loadingChange: boolean;
 };
 
 const initialState: TStateInitial = {
@@ -14,6 +17,9 @@ const initialState: TStateInitial = {
   isLoading: false,
   isError: null,
   courses: [],
+  classes: [],
+  errorOnChange: null,
+  loadingChange: false,
 };
 
 export const accessPermission = createAsyncThunk(
@@ -49,6 +55,42 @@ export const getClasses = createAsyncThunk("info/getClasses", async () => {
   return response.data;
 });
 
+export const changePassword = createAsyncThunk(
+  "info/changePassword",
+  async (newPassword: string) => {
+    const token = localStorage.getItem("accessToken");
+    const response = await axiosWonk.put(
+      "/users/user/change-password/",
+      newPassword,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    console.log(response.data);
+    return response.data;
+  }
+);
+
+export const changeEmail = createAsyncThunk(
+  "info/changeEmail",
+  async (newEmail: string) => {
+    const token = localStorage.getItem("accessToken");
+    const response = await axiosWonk.put(
+      "/users/user/change-email/",
+      newEmail,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    console.log(response.data);
+    return response.data;
+  }
+);
+
 const infoSlice = createSlice({
   name: "info",
   initialState,
@@ -76,7 +118,13 @@ const infoSlice = createSlice({
         (state, action: PayloadAction<TCoureses[]>) => {
           state.courses = action.payload;
         }
-      );
+      )
+      .addCase(changePassword.pending, (state) => {})
+      .addCase(changePassword.rejected, (state) => {})
+      .addCase(changePassword.fulfilled, (state, action) => {})
+      .addCase(changeEmail.pending, (state) => {})
+      .addCase(changeEmail.rejected, (state) => {})
+      .addCase(changeEmail.fulfilled, (state, action) => {});
   },
 });
 
