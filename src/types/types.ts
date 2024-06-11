@@ -29,3 +29,9 @@ export type TUserInfo = {
   groups: [];
   user_permissions: [];
 };
+
+export type TCoureses = {
+  id: number;
+  course_img: null | string;
+  name: string;
+};

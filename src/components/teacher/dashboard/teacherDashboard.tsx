@@ -1,20 +1,20 @@
-import { TUserInfo } from "../../../types/types";
+import { TCoureses, TUserInfo } from "../../../types/types";
 import WelcomeFooter from "../../welcome/layout/welcomeFooter/welcomeFooter";
 import TeacherHeader from "../layout/teacherHeader/teacherHeader";
-import "./teacherDashboard.scss";
 import { Button, CircularProgress } from "@mui/material";
 import { FaRegNewspaper } from "react-icons/fa6";
 import { MdOutlineGrade } from "react-icons/md";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import historyCard from "../../../assets/subjectCards/techny-file-with-atom-icon.svg";
 import BookOutlinedIcon from "@mui/icons-material/BookOutlined";
 import SubjectCard from "../dashboard/teacherMain/subjectCard";
+import "./teacherDashboard.scss";
 
 type TProps = {
   user: TUserInfo | null;
   loading: boolean;
   iserror: string | null;
+  courses: TCoureses[];
 };
 
 const TeacherDashboard = (props: TProps) => {
@@ -50,20 +50,25 @@ const TeacherDashboard = (props: TProps) => {
             <div className="teacher-main-subjects">
               <div className="teacher-main-subjects-header">
                 <div className="teacher-main-subjects-header-inner">
-                    <BookOutlinedIcon className="bookLargeIcon"/>
-                    <h2>Subjects</h2>
+                  <BookOutlinedIcon className="bookLargeIcon" />
+                  <h2>Subjects</h2>
                 </div>
               </div>
               <div className="teacher-main-subjects-listview">
                 <ArrowBackIosNewIcon />
                 <div className="teacher-main-subjects-container">
-                  <SubjectCard />
-                  <SubjectCard />
-                  <SubjectCard />
-                  <SubjectCard />
-                  <SubjectCard />
-                  <SubjectCard />
-                  
+                  {props.courses.length > 0 ? (
+                    props.courses.map((item) => (
+                      <SubjectCard
+                        key={item.id}
+                        id={item.id}
+                        course_img={item.course_img}
+                        name={item.name}
+                      />
+                    ))
+                  ) : (
+                    <p>There is no subjects yet...</p>
+                  )}
                 </div>
                 <ArrowBackIosNewIcon className="backArrow" />
               </div>
