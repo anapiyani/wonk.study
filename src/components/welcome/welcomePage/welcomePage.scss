@@ -74,11 +74,7 @@
           }
         }
         & .navs {
-          width: 247px;
           height: 100%;
-          @include media-md {
-            width: 200px;
-          }
           @include media-sm {
             display: none;
           }
@@ -439,4 +435,19 @@
 }
 .hide {
   display: none;
+}
+
+.li-welcome {
+  margin-left: 30px;
+  width: 150px;
+  .log-out-welcome {
+    width: 150px;
+    border-color: $primary;
+    color: $primary;
+    border-radius: 20px;
+    &:hover {
+      border-color: $primary;
+      color: $primary;
+    }
+  }
 }

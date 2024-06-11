@@ -11,10 +11,15 @@ import { Button } from "@mui/material";
 import Modal from "../../UI/modal/modal";
 import "./welcomePage.scss";
 
-const WelcomePage = () => {
+type TProps = {
+  buttonChange: boolean;
+  handlelogOut: () => void;
+};
+const WelcomePage = (props: TProps) => {
   const [onHide, setOnHide] = useState<boolean>(true);
   const [modalApple, setModalApple] = useState<boolean>(false);
   const [modalGoogle, setModalGoogle] = useState<boolean>(false);
+  const tokenAccess = localStorage.getItem("accessToken");
 
   const onClickMenu = () => {
     if (onHide == false) {
@@ -27,6 +32,10 @@ const WelcomePage = () => {
   const closeModal = () => {
     setModalApple(false);
     setModalGoogle(false);
+  };
+
+  const hadnleLogOut = () => {
+    props.handlelogOut();
   };
 
   return (
@@ -81,6 +90,19 @@ const WelcomePage = () => {
                       Contacts
                     </NavLink>
                   </li>
+                  {tokenAccess ? (
+                    <li className="li-welcome">
+                      <Button
+                        onClick={hadnleLogOut}
+                        variant="outlined"
+                        className="log-out-welcome"
+                      >
+                        Log out
+                      </Button>
+                    </li>
+                  ) : (
+                    ""
+                  )}
                 </ul>
               </nav>
             </div>
@@ -112,7 +134,9 @@ const WelcomePage = () => {
                     </div>
                     <div className="buttons top">
                       <Link to="/login">
-                        <button className="signUp">Log in</button>
+                        <button className="signUp">
+                          {props.buttonChange ? "My profile" : "Log in"}
+                        </button>
                       </Link>
                     </div>
                   </div>
