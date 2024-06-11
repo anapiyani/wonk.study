@@ -16,6 +16,7 @@ type TProps = {
 };
 const TeacherHeader = (props: TProps) => {
   const [logOutModal, setLogOutModal] = useState<boolean>(false);
+  const [subjectModal, setSubjectsModal] = useState<boolean>(false);
 
   const handleOpenModalLogOut = () => {
     if (logOutModal) {
@@ -25,7 +26,13 @@ const TeacherHeader = (props: TProps) => {
     }
   };
 
-  const openModalSubjects = () => {};
+  const handleOpenSubjectModal = () => {
+    if (subjectModal) {
+      setSubjectsModal(false);
+    } else {
+      setSubjectsModal(true);
+    }
+  };
 
   return (
     <header className="teacher-header">
@@ -45,7 +52,7 @@ const TeacherHeader = (props: TProps) => {
                 <DashboardOutlinedIcon />
                 Main
               </NavLink>
-              <a onClick={openModalSubjects} className="teacher-nav-link">
+              <a onClick={handleOpenSubjectModal} className="teacher-nav-link">
                 <BookOutlinedIcon />
                 <div>
                   Subjects
@@ -73,7 +80,14 @@ const TeacherHeader = (props: TProps) => {
       ) : (
         ""
       )}
-      {/* <SubjectsModal courses={props.courses} /> */}
+      {subjectModal ? (
+        <SubjectsModal
+          courses={props.courses}
+          handleOpenSubjectModal={handleOpenSubjectModal}
+        />
+      ) : (
+        ""
+      )}
     </header>
   );
 };
