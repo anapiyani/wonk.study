@@ -1,12 +1,13 @@
 import Login from "../../components/auth/login/login";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { TLoginUser } from "../../types/types";
 import { AppDispatch, RootState } from "../../store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { loginPost, resetSuccess } from "../../store/login.slice";
 
 const LoginContainer = () => {
+  const [showPassword, setShowPassword] = useState<boolean>(false);
   const dispatch: AppDispatch = useDispatch();
   const nagivate = useNavigate();
   const isSucces = useSelector((state: RootState) => state.login.isSuccess);
@@ -28,6 +29,14 @@ const LoginContainer = () => {
     dispatch(loginPost(loginData));
   };
 
+  const handleShowPassword = () => {
+    if (!showPassword) {
+      setShowPassword(true);
+    } else {
+      setShowPassword(false);
+    }
+  };
+
   return (
     <div className="login-container">
       <Login
@@ -35,6 +44,8 @@ const LoginContainer = () => {
         isError={isError}
         isLoading={isLoading}
         isSuccess={isSucces}
+        showPassword={showPassword}
+        handleClickShowPassword={handleShowPassword}
       />
     </div>
   );

@@ -133,25 +133,17 @@ const WelcomePage = () => {
                         onClick={() => setModalApple(true)}
                         className="download"
                       >
-                        {modalApple ? (
-                          <CircularProgress />
-                        ) : (
-                          <div>
-                            <AppleIcon className="icon-download" /> IOS
-                          </div>
-                        )}
+                        <div>
+                          <AppleIcon className="icon-download" /> IOS
+                        </div>
                       </button>
                       <button
                         onClick={() => setModalGoogle(true)}
                         className="download android"
                       >
-                        {modalGoogle ? (
-                          <CircularProgress color="inherit" />
-                        ) : (
-                          <div>
-                            <AndroidIcon className="icon-download" /> Android
-                          </div>
-                        )}
+                        <div>
+                          <AndroidIcon className="icon-download" /> Android
+                        </div>
                       </button>
                     </div>
                   </div>
