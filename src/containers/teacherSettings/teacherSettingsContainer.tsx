@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import {
   changeEmail,
   changePassword,
+  removeError,
   removieSuccess,
 } from "../../store/info.slice";
 import { TtoChangePassword } from "../../types/types";
@@ -52,7 +53,14 @@ const SettingsContainer = () => {
         dispatch(removieSuccess());
       }, 2000);
     }
-  }, [dispatch]);
+  }, [dispatch, changeSuccess]);
+  useEffect(() => {
+    if (changeErr) {
+      setInterval(() => {
+        dispatch(removeError());
+      }, 2000);
+    }
+  }, [dispatch, changeErr]);
 
   return (
     <Settings
