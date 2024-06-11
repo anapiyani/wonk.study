@@ -1,17 +1,19 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axiosWonk from "../config/axiosWonk";
-import { TUserInfo } from "../types/types";
+import { TCoureses, TUserInfo } from "../types/types";
 
 type TStateInitial = {
   user: TUserInfo | null;
   isLoading: boolean;
   isError: string | null;
+  courses: TCoureses[];
 };
 
 const initialState: TStateInitial = {
   user: null,
   isLoading: false,
   isError: null,
+  courses: [],
 };
 
 export const accessPermission = createAsyncThunk(
@@ -26,16 +28,15 @@ export const accessPermission = createAsyncThunk(
   }
 );
 
-// Wir müssen die Kurse erhalten, um sie alle in ein State zu bringen und auf der Seite zu zeigen
-// export const getCoureses = createAsyncThunk("info/getCourses", async () => {
-//   const token = localStorage.getItem("accessToken");
-//   const response = await axiosWonk.get("/courses/list/", {
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//     },
-//   });
-//   console.log(response.data);
-// });
+export const getCoureses = createAsyncThunk("info/getCourses", async () => {
+  const token = localStorage.getItem("accessToken");
+  const response = await axiosWonk.get("/courses/list/", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return response.data;
+});
 
 const infoSlice = createSlice({
   name: "info",
@@ -57,6 +58,12 @@ const infoSlice = createSlice({
           state.user = action.payload;
           state.isLoading = false;
           state.isError = null;
+        }
+      )
+      .addCase(
+        getCoureses.fulfilled,
+        (state, action: PayloadAction<TCoureses[]>) => {
+          state.courses = action.payload;
         }
       );
   },

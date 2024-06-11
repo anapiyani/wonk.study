@@ -1,19 +1,26 @@
-import "./subjectCard.scss";
 import historyCard from "../../../../assets/subjectCards/techny-file-with-atom-icon.svg";
+import "./subjectCard.scss";
 
-const SubjectCard = () => {
+type TProps = {
+  id: number;
+  course_img: string | null;
+  name: string;
+};
+
+const SubjectCard = (props: TProps) => {
   return (
     <div className="subject-card">
       <div className="subject-card-content">
         <div className="subject-card-body">
-          <img src={historyCard} alt="" />
+          {/* I put the history image if there is no images... so we'll out real images when it comes */}
+          <img src={props.course_img ? props.course_img : historyCard} alt="" />
         </div>
       </div>
       <div className="subject-card-text">
-        <h3>Mathematics</h3>
+        <h3>{props.name}</h3>
       </div>
     </div>
   );
-}
+};
 
 export default SubjectCard;
