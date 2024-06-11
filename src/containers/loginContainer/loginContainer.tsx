@@ -9,6 +9,8 @@ import { loginPost, resetSuccess } from "../../store/login.slice";
 const LoginContainer = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const dispatch: AppDispatch = useDispatch();
+  const navigate = useNavigate();
+  const token = localStorage.getItem("accessToken");
   const nagivate = useNavigate();
   const isSucces = useSelector((state: RootState) => state.login.isSuccess);
   const isLoading = useSelector((state: RootState) => state.login.isLoading);
@@ -36,6 +38,13 @@ const LoginContainer = () => {
       setShowPassword(false);
     }
   };
+
+  useEffect(() => {
+    // here is only teacher, so imma added it only for a teacher! #SOF
+    if (token) {
+      navigate("/teacher-dashboard");
+    }
+  }, []);
 
   return (
     <div className="login-container">
