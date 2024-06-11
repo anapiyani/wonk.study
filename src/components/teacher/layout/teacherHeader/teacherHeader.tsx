@@ -73,7 +73,7 @@ const TeacherHeader = (props: TProps) => {
       ) : (
         ""
       )}
-      <SubjectsModal courses={props.courses} />
+      {/* <SubjectsModal courses={props.courses} /> */}
     </header>
   );
 };
