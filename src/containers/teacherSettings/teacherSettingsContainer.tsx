@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import Settings from "../../components/teacher/settings/settings";
 import { AppDispatch, RootState } from "../../store/store";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   changeEmail,
   changePassword,
@@ -13,6 +13,7 @@ import { TtoChangePassword } from "../../types/types";
 const SettingsContainer = () => {
   const user = useSelector((state: RootState) => state.info.user);
   const courses = useSelector((state: RootState) => state.info.courses);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
   const dispatch = useDispatch<AppDispatch>();
   const changeSuccess = useSelector(
     (state: RootState) => state.info.successChange
@@ -62,6 +63,14 @@ const SettingsContainer = () => {
     }
   }, [dispatch, changeErr]);
 
+  const handleShowPassword = () => {
+    if (!showPassword) {
+      setShowPassword(true);
+    } else {
+      setShowPassword(false);
+    }
+  };
+
   return (
     <Settings
       user={user}
@@ -71,6 +80,8 @@ const SettingsContainer = () => {
       changeErr={changeErr}
       updateEmail={updateEmail}
       updatePassword={updatePassword}
+      showPassword={showPassword}
+      handleClickShowPassword={handleShowPassword}
     />
   );
 };

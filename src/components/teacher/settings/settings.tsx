@@ -2,8 +2,17 @@ import "./settings.scss";
 import TeacherHeader from "../layout/teacherHeader/teacherHeader";
 import WelcomeFooter from "../../welcome/layout/welcomeFooter/welcomeFooter";
 import { TCoureses, TUserInfo } from "../../../types/types";
-import { Alert, Button, CircularProgress, TextField } from "@mui/material";
+import {
+  Alert,
+  Button,
+  CircularProgress,
+  IconButton,
+  InputAdornment,
+  TextField,
+} from "@mui/material";
 import { useState } from "react";
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 
 type TProps = {
   user: TUserInfo | null;
@@ -17,6 +26,8 @@ type TProps = {
     oldPassword: string,
     newPassword: string
   ) => void;
+  showPassword: boolean;
+  handleClickShowPassword: () => void;
 };
 
 const Settings = (props: TProps) => {
@@ -33,6 +44,10 @@ const Settings = (props: TProps) => {
   const updatePassword = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     props.updatePassword(e, oldPassword, newPassword);
+  };
+
+  const handleMouseDownPassword = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
   };
 
   return (
@@ -112,19 +127,55 @@ const Settings = (props: TProps) => {
                   <div className="settings-password-textfields">
                     <TextField
                       required
-                      type="text"
+                      type={props.showPassword ? "text" : "password"}
                       className="inputs"
                       label="Old password"
                       variant="outlined"
-                      onChange={(e) => setOldPassword(e.target.value)}
+                      onChange={(e) => setNewPassword(e.target.value)}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <IconButton
+                              aria-label="toggle password visibility"
+                              onClick={props.handleClickShowPassword}
+                              onMouseDown={handleMouseDownPassword}
+                              edge="end"
+                            >
+                              {props.showPassword ? (
+                                <VisibilityOutlinedIcon />
+                              ) : (
+                                <VisibilityOffOutlinedIcon />
+                              )}
+                            </IconButton>
+                          </InputAdornment>
+                        ),
+                      }}
                     />
                     <TextField
                       required
-                      type="text"
+                      type={props.showPassword ? "text" : "password"}
                       className="inputs"
                       label="New password"
                       variant="outlined"
                       onChange={(e) => setNewPassword(e.target.value)}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <IconButton
+                              aria-label="toggle password visibility"
+                              onClick={props.handleClickShowPassword}
+                              onMouseDown={handleMouseDownPassword}
+                              edge="end"
+                            >
+                              {props.showPassword ? (
+                                <VisibilityOutlinedIcon />
+                              ) : (
+                                <VisibilityOffOutlinedIcon />
+                              )}
+                            </IconButton>
+                          </InputAdornment>
+                        ),
+                      }}
                     />
                   </div>
 
