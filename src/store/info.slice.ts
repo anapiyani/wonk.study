@@ -123,8 +123,8 @@ const infoSlice = createSlice({
       .addCase(changePassword.rejected, (state) => {})
       .addCase(changePassword.fulfilled, (state, action) => {})
       .addCase(changeEmail.pending, (state) => {})
-      .addCase(changeEmail.pending, (state) => {})
-      .addCase(changeEmail.pending, (state, action) => {});
+      .addCase(changeEmail.rejected, (state) => {})
+      .addCase(changeEmail.fulfilled, (state, action) => {});
   },
 });
 
