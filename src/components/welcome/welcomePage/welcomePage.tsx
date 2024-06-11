@@ -7,7 +7,7 @@ import AppleIcon from "@mui/icons-material/Apple";
 import AndroidIcon from "@mui/icons-material/Android";
 import MenuIcon from "@mui/icons-material/Menu";
 import logotype from "../../../assets/logo_word.svg";
-import { Button, CircularProgress } from "@mui/material";
+import { Button } from "@mui/material";
 import Modal from "../../UI/modal/modal";
 import "./welcomePage.scss";
 

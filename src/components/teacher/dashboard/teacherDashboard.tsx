@@ -7,7 +7,6 @@ import { MdOutlineGrade } from "react-icons/md";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import BookOutlinedIcon from "@mui/icons-material/BookOutlined";
-import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SubjectCard from "../dashboard/teacherMain/subjectCard";
 import "./teacherDashboard.scss";
 import { Person } from "@mui/icons-material";

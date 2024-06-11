@@ -14,6 +14,7 @@ const SubjectsModal = (props: TProps) => {
         <div className="subject-modal-content">
           {props.courses.map((item) => (
             <SubjectCard
+              key={item.id}
               id={item.id}
               course_img={item.course_img}
               name={item.name}
