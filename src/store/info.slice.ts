@@ -1,6 +1,12 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axiosWonk from "../config/axiosWonk";
-import { TClasses, TCoureses, TUserInfo } from "../types/types";
+import {
+  TClasses,
+  TCoureses,
+  TtoChangeEmail,
+  TtoChangePassword,
+  TUserInfo,
+} from "../types/types";
 
 type TStateInitial = {
   user: TUserInfo | null;
@@ -10,6 +16,7 @@ type TStateInitial = {
   classes: TClasses[];
   errorOnChange: string | null;
   loadingChange: boolean;
+  successChange: boolean;
 };
 
 const initialState: TStateInitial = {
@@ -20,6 +27,7 @@ const initialState: TStateInitial = {
   classes: [],
   errorOnChange: null,
   loadingChange: false,
+  successChange: false,
 };
 
 export const accessPermission = createAsyncThunk(
@@ -57,7 +65,7 @@ export const getClasses = createAsyncThunk("info/getClasses", async () => {
 
 export const changePassword = createAsyncThunk(
   "info/changePassword",
-  async (newPassword: string) => {
+  async (newPassword: TtoChangePassword) => {
     const token = localStorage.getItem("accessToken");
     const response = await axiosWonk.put(
       "/users/user/change-password/",
@@ -68,14 +76,13 @@ export const changePassword = createAsyncThunk(
         },
       }
     );
-    console.log(response.data);
     return response.data;
   }
 );
 
 export const changeEmail = createAsyncThunk(
   "info/changeEmail",
-  async (newEmail: string) => {
+  async (newEmail: TtoChangeEmail) => {
     const token = localStorage.getItem("accessToken");
     const response = await axiosWonk.put(
       "/users/user/change-email/",
@@ -86,7 +93,6 @@ export const changeEmail = createAsyncThunk(
         },
       }
     );
-    console.log(response.data);
     return response.data;
   }
 );
@@ -94,7 +100,14 @@ export const changeEmail = createAsyncThunk(
 const infoSlice = createSlice({
   name: "info",
   initialState,
-  reducers: {},
+  reducers: {
+    removieSuccess: (state) => {
+      state.successChange = false;
+    },
+    removeError: (state) => {
+      state.errorOnChange = null;
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(accessPermission.pending, (state) => {
@@ -119,13 +132,32 @@ const infoSlice = createSlice({
           state.courses = action.payload;
         }
       )
-      .addCase(changePassword.pending, (state) => {})
-      .addCase(changePassword.rejected, (state) => {})
-      .addCase(changePassword.fulfilled, (state, action) => {})
-      .addCase(changeEmail.pending, (state) => {})
-      .addCase(changeEmail.rejected, (state) => {})
-      .addCase(changeEmail.fulfilled, (state, action) => {});
+      .addCase(changePassword.pending, (state) => {
+        state.loadingChange = true;
+      })
+      .addCase(changePassword.rejected, (state, action) => {
+        state.errorOnChange =
+          "Error on changing password" || action.error.message;
+        state.loadingChange = false;
+      })
+      .addCase(changePassword.fulfilled, (state) => {
+        state.successChange = true;
+        state.loadingChange = false;
+      })
+      .addCase(changeEmail.pending, (state) => {
+        state.loadingChange = true;
+      })
+      .addCase(changeEmail.rejected, (state, action) => {
+        state.errorOnChange =
+          "Error on changing password" || action.error.message;
+        state.loadingChange = false;
+      })
+      .addCase(changeEmail.fulfilled, (state) => {
+        state.successChange = true;
+        state.loadingChange = false;
+      });
   },
 });
 
+export const { removieSuccess, removeError } = infoSlice.actions;
 export default infoSlice.reducer;

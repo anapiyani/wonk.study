@@ -37,3 +37,12 @@ export type TCoureses = {
 };
 
 export type TClasses = {};
+
+export type TtoChangeEmail = {
+  email: string;
+};
+
+export type TtoChangePassword = {
+  old_password: string;
+  password: string;
+};
