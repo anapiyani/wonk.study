@@ -4,12 +4,13 @@ import "./subjectsModal.scss";
 
 type TProps = {
   courses: TCoureses[];
+  handleOpenSubjectModal: () => void;
 };
 
 const SubjectsModal = (props: TProps) => {
   return (
     <div className="subjects-modal">
-      <div className="backdrop">
+      <div onClick={props.handleOpenSubjectModal} className="backdrop">
         <div className="subject-modal-content">
           {props.courses.map((item) => (
             <SubjectCard
