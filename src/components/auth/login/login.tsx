@@ -1,8 +1,17 @@
-import { Alert, Button, CircularProgress, TextField } from "@mui/material";
+import {
+  Alert,
+  Button,
+  CircularProgress,
+  IconButton,
+  InputAdornment,
+  TextField,
+} from "@mui/material";
 import WelcomeFooter from "../../welcome/layout/welcomeFooter/welcomeFooter";
 import WelcomeHeader from "../../welcome/layout/welcomeHeader/welcomeHeader";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 import "./login.scss";
 
 type TProps = {
@@ -10,6 +19,8 @@ type TProps = {
   isError: string | null;
   isSuccess: boolean;
   isLoading: boolean;
+  showPassword: boolean;
+  handleClickShowPassword: () => void;
 };
 
 const Login = (props: TProps) => {
@@ -32,6 +43,10 @@ const Login = (props: TProps) => {
     props.loginHandler(email, password);
   };
 
+  const handleMouseDownPassword = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="login">
       <WelcomeHeader />
@@ -50,11 +65,30 @@ const Login = (props: TProps) => {
               variant="outlined"
             />
             <TextField
-              onChange={(e) => setPassword(e.target.value)}
+              required
+              type={props.showPassword ? "text" : "password"}
               className="inputs"
-              type="password"
-              label="Password"
+              label="Пароль"
               variant="outlined"
+              onChange={(e) => setPassword(e.target.value)}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={props.handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {props.showPassword ? (
+                        <VisibilityOutlinedIcon />
+                      ) : (
+                        <VisibilityOffOutlinedIcon />
+                      )}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
             />
             <Link className="forgot" to="/">
               Forgot password?
