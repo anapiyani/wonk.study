@@ -19,6 +19,7 @@ type TProps = {
   iserror: string | null;
   courses: TCoureses[];
   classes: TClasses[];
+  handleClassOpen: (grade: string, section: string) => void;
 };
 
 const TeacherDashboard = (props: TProps) => {
@@ -121,6 +122,7 @@ const TeacherDashboard = (props: TProps) => {
                         grade={item.grade_level}
                         section={item.section}
                         number_of_students={item.number_of_students}
+                        handleClassOpen={props.handleClassOpen}
                       />
                     ))
                   ) : (
