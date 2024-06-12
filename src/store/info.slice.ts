@@ -54,12 +54,11 @@ export const getCoureses = createAsyncThunk("info/getCourses", async () => {
 
 export const getClasses = createAsyncThunk("info/getClasses", async () => {
   const token = localStorage.getItem("accessToken");
-  const response = await axiosWonk.get("", {
+  const response = await axiosWonk.get("/courses/get-teacher-classes/", {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
-  console.log(response.data);
   return response.data;
 });
 
@@ -130,6 +129,12 @@ const infoSlice = createSlice({
         getCoureses.fulfilled,
         (state, action: PayloadAction<TCoureses[]>) => {
           state.courses = action.payload;
+        }
+      )
+      .addCase(
+        getClasses.fulfilled,
+        (state, action: PayloadAction<TClasses[]>) => {
+          state.classes = action.payload;
         }
       )
       .addCase(changePassword.pending, (state) => {

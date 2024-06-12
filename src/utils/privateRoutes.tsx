@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Outlet, Navigate } from "react-router-dom";
 import { AppDispatch } from "../store/store";
-import { accessPermission, getCoureses } from "../store/info.slice";
+import { accessPermission, getClasses, getCoureses } from "../store/info.slice";
 
 const PrivateRoutes = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -11,6 +11,7 @@ const PrivateRoutes = () => {
   useEffect(() => {
     dispatch(accessPermission(token));
     dispatch(getCoureses());
+    dispatch(getClasses());
   }, [dispatch]);
 
   return token ? <Outlet /> : <Navigate to="/welcomePage" />;

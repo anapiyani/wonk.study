@@ -7,6 +7,7 @@ const DashboardContainer = () => {
   const loading = useSelector((state: RootState) => state.info.isLoading);
   const iserror = useSelector((state: RootState) => state.info.isError);
   const courses = useSelector((state: RootState) => state.info.courses);
+  const classes = useSelector((state: RootState) => state.info.classes);
 
   return (
     <TeacherDashboard
@@ -14,6 +15,7 @@ const DashboardContainer = () => {
       loading={loading}
       iserror={iserror}
       courses={courses}
+      classes={classes}
     />
   );
 };
