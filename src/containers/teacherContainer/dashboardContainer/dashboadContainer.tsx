@@ -4,14 +4,16 @@ import { RootState } from "../../../store/store";
 import { useNavigate } from "react-router-dom";
 
 const DashboardContainer = () => {
-  const naviagtor = useNavigate();
+  const navigate = useNavigate();
   const user = useSelector((state: RootState) => state.info.user);
   const loading = useSelector((state: RootState) => state.info.isLoading);
   const iserror = useSelector((state: RootState) => state.info.isError);
   const courses = useSelector((state: RootState) => state.info.courses);
   const classes = useSelector((state: RootState) => state.info.classes);
 
-  const handleClassOpen = () => {};
+  const handleClassOpen = (grade: string, section: string) => {
+    navigate(`/teacher-dashboard/grade/${grade}/${section}`);
+  };
 
   return (
     <TeacherDashboard

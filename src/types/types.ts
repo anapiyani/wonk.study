@@ -51,3 +51,14 @@ export type TtoChangePassword = {
   old_password: string;
   password: string;
 };
+
+export type TStudent = {
+  email: string;
+  first_name: string;
+  grade_level: string;
+  id: number;
+  last_name: string;
+  profile_picture: string | null;
+  role: string;
+  section: string;
+};
