@@ -16,8 +16,10 @@ const SubjectCard = (props: TProps) => {
     <div onClick={handleClickSubject} className="subject-card">
       <div className="subject-card-content">
         <div className="subject-card-body">
-          {/* I put the history image if there is no images... so we'll out real images when it comes */}
-          <img src={props.course_img ? props.course_img : historyCard} alt="" />
+          <img
+            src={props.course_img ? props.course_img : historyCard}
+            alt="Subject"
+          />
         </div>
       </div>
       <div className="subject-card-text">

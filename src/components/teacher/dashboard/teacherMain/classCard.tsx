@@ -4,11 +4,15 @@ type TProps = {
   grade: string;
   section: string;
   number_of_students: number;
+  handleClassOpen: (grade: string, section: string) => void;
 };
 
 const ClassCard = (props: TProps) => {
   return (
-    <div className="class-card">
+    <div
+      onClick={() => props.handleClassOpen(props.grade, props.section)}
+      className="class-card"
+    >
       <div className="class-card-content">
         <div className="class-card-body">
           <h1 className="class-grade">
