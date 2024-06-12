@@ -14,6 +14,7 @@ type TProps = {
   error: string | null;
   grade: string;
   section: string;
+  onClickStudent: (id: number) => void;
 };
 
 const GradeStudents = (props: TProps) => {
@@ -56,7 +57,11 @@ const GradeStudents = (props: TProps) => {
               <CircularProgress className="loading" />
             ) : (
               props.students.map((student) => (
-                <Student key={student.id} student={student} />
+                <Student
+                  key={student.id}
+                  student={student}
+                  onClickStudent={props.onClickStudent}
+                />
               ))
             )}
             {props.error ? <p className="error">{props.error}</p> : ""}

@@ -26,19 +26,19 @@ const TeacherDashboard = (props: TProps) => {
   const subjectsContainerRef = useRef<HTMLDivElement>(null);
   const classesContainerRef = useRef<HTMLDivElement>(null);
 
-
-  const scroll = (ref: React.RefObject<HTMLDivElement>, direction: "left" | "right") => {
+  const scroll = (
+    ref: React.RefObject<HTMLDivElement>,
+    direction: "left" | "right"
+  ) => {
     const { current } = ref;
     if (current) {
-      const scrollAmount = 200; // Adjust this value as needed
+      const scrollAmount = 200;
       current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
         behavior: "smooth",
       });
     }
   };
-
-  
 
   return (
     <div className="teacher-dashboard">
@@ -81,7 +81,10 @@ const TeacherDashboard = (props: TProps) => {
                   className="leftArrow"
                   onClick={() => scroll(subjectsContainerRef, "left")}
                 />
-                <div className="teacher-main-subjects-container" ref={subjectsContainerRef}>
+                <div
+                  className="teacher-main-subjects-container"
+                  ref={subjectsContainerRef}
+                >
                   {props.courses.length > 0 ? (
                     props.courses.map((item) => (
                       <SubjectCard
@@ -115,7 +118,10 @@ const TeacherDashboard = (props: TProps) => {
                   className="leftArrow"
                   onClick={() => scroll(classesContainerRef, "left")}
                 />
-                <div className="teacher-main-subjects-container" ref={classesContainerRef}>
+                <div
+                  className="teacher-main-subjects-container"
+                  ref={classesContainerRef}
+                >
                   {/* <ClassCard /> */}
                   {props.classes.length > 0 ? (
                     props.classes.map((item) => (

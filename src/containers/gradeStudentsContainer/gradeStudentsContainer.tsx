@@ -21,6 +21,11 @@ const GradeStudentsContainer = () => {
     }
   }, [grade, section, dispatch]);
 
+  const onClickStudent = (id: number) => {
+    const student = students.find((student) => student.id === id);
+    console.log(student);
+  };
+
   return (
     <GradeStudents
       courses={courses}
@@ -29,6 +34,7 @@ const GradeStudentsContainer = () => {
       error={error}
       grade={grade!}
       section={section!}
+      onClickStudent={onClickStudent}
     />
   );
 };
