@@ -39,7 +39,7 @@ const TeacherHeader = (props: TProps) => {
       <div className="container">
         <div className="teacher-header-content">
           <div className="teacher-header-content-left">
-            <NavLink to="/teacher-dashboard" className="logotype">
+            <NavLink to="/" className="logotype">
               <img src={logotype} alt="logotype" />
             </NavLink>
             <div className="choose-language">
