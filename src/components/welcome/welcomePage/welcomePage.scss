@@ -9,19 +9,19 @@
     display: none;
   }
   @include media-xl {
-    width: 1000px;
+    width: 80%;
     .menu-icon {
       display: none;
     }
   }
   @include media-md {
-    width: 501px;
+    width: 90%;
     .menu-icon {
       display: none;
     }
   }
   @include media-sm {
-    width: 320px;
+    width: 90%;
     .menu-icon {
       display: block;
     }
@@ -57,7 +57,7 @@
         @include media-sm {
           justify-content: space-between;
           align-items: center;
-          padding: 0 30px;
+          // padding: 0 30px;
         }
         & .logotype {
           width: 178px;
