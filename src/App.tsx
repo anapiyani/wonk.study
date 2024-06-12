@@ -9,6 +9,7 @@ import DashboardContainer from "./containers/teacherContainer/dashboardContainer
 import PrivateRoutes from "./utils/privateRoutes";
 import NotFound from "./components/error/notFound";
 import SettingsContainer from "./containers/teacherSettings/teacherSettingsContainer";
+import SubjectPageContainer from "./containers/teacherContainer/subjectPageContainer/subjectPageContainer";
 
 const App = () => {
   return (
@@ -27,9 +28,11 @@ const App = () => {
           <Route element={<PrivateRoutes />}>
             <Route path="/teacher-dashboard" element={<DashboardContainer />} />
             <Route path="/settings" element={<SettingsContainer />} />
+            <Route path="/subject-page" element={<SubjectPageContainer />} />
           </Route>
           <Route path="/teacher-dashboard" element={<DashboardContainer />} />
           <Route path="/settings" element={<SettingsContainer />} />
+          <Route path="/subject-page" element={<SubjectPageContainer />} />
         </Routes>
       </BrowserRouter>
     </div>
