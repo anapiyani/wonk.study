@@ -36,7 +36,12 @@ export type TCoureses = {
   name: string;
 };
 
-export type TClasses = {};
+export type TClasses = {
+  grade_level: string;
+  section: string;
+  id: number;
+  number_of_students: number;
+};
 
 export type TtoChangeEmail = {
   email: string;

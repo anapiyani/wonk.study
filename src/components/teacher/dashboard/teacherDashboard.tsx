@@ -1,4 +1,4 @@
-import { TCoureses, TUserInfo } from "../../../types/types";
+import { TClasses, TCoureses, TUserInfo } from "../../../types/types";
 import WelcomeFooter from "../../welcome/layout/welcomeFooter/welcomeFooter";
 import TeacherHeader from "../layout/teacherHeader/teacherHeader";
 import { Button, CircularProgress } from "@mui/material";
@@ -9,15 +9,15 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import BookOutlinedIcon from "@mui/icons-material/BookOutlined";
 import SubjectCard from "../dashboard/teacherMain/subjectCard";
 import "./teacherDashboard.scss";
-import { Person } from "@mui/icons-material";
-// import ClassCard from "./teacherMain/classCard";
-
+import ClassCard from "./teacherMain/classCard";
+import { PeopleAltOutlined } from "@mui/icons-material";
 
 type TProps = {
   user: TUserInfo | null;
   loading: boolean;
   iserror: string | null;
   courses: TCoureses[];
+  classes: TClasses[];
 };
 
 const TeacherDashboard = (props: TProps) => {
@@ -50,8 +50,6 @@ const TeacherDashboard = (props: TProps) => {
             </div>
           </div>
           <div className="teacher-main">
-            {" "}
-            {/*where subjects and students will be displayed*/}
             <div className="teacher-main-subjects">
               <div className="teacher-main-subjects-header">
                 <div className="teacher-main-subjects-header-inner">
@@ -78,33 +76,35 @@ const TeacherDashboard = (props: TProps) => {
                 <ArrowBackIosNewIcon className="backArrow" />
               </div>
             </div>
-            {/* hier es ist notwendig, ein anderes hinzuzufügen, aber als idk */}
-            {/* <div className="teacher-main-students">
-              <div className="teacher-main-students-header">
-                <div className="teacher-main-students-header-inner">
-                  <PersonOutlinedIcon className="bookLargeIcon" />
+          </div>
+          <div className="teacher-main">
+            <div className="teacher-main-subjects">
+              <div className="teacher-main-subjects-header">
+                <div className="teacher-main-subjects-header-inner">
+                  <PeopleAltOutlined className="bookLargeIcon" />
                   <h2>Students</h2>
                 </div>
               </div>
-              <div className="teacher-main-students-listview">
+              <div className="teacher-main-subjects-listview">
                 <ArrowBackIosNewIcon />
-                <div className="teacher-main-students-container">   
-                  {props.courses.length > 0 ? (
-                    props.courses.map((item) => (
+                <div className="teacher-main-subjects-container">
+                  {/* <ClassCard /> */}
+                  {props.classes.length > 0 ? (
+                    props.classes.map((item) => (
                       <ClassCard
                         key={item.id}
-                        id={item.id}
-                        course_img={item.course_img}
-                        name={item.name}
+                        grade={item.grade_level}
+                        section={item.section}
+                        number_of_students={item.number_of_students}
                       />
                     ))
                   ) : (
-                    <p>There is no subjects yet...</p>
+                    <p>There is no classes yet...</p>
                   )}
                 </div>
                 <ArrowBackIosNewIcon className="backArrow" />
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>

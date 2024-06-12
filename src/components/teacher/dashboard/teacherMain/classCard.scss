@@ -1,1 +1,48 @@
 @import "../../../../assets/scss/variables.scss";
+
+.class-card {
+  height: 186px;
+  width: 150px;
+
+  & .class-card-content {
+    display: flex;
+    height: 150px;
+    width: 150px;
+    border-radius: 20px;
+    border: solid white;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    & .class-card-body {
+      width: 80%;
+      height: 80%;
+      background-color: #a0a4ff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      color: white;;
+      flex-direction: column;
+      justify-content: center;
+      h1 {
+        margin: 0;
+        text-transform: uppercase;
+        font-family: 'Arial', sans-serif;
+        font-size: 46px;
+      }
+      h2 {
+        margin: 0;
+        text-transform: uppercase;
+        margin-top: 10px;
+        font-size: 15px;
+        font-family: 'Arial', sans-serif;
+      }
+    }
+  }
+  & .class-card-text {
+    font-size: 12px;
+    color: $text-black;
+    font-weight: 700;
+  }
+}
