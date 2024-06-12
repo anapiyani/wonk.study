@@ -11,6 +11,7 @@ import SubjectCard from "../dashboard/teacherMain/subjectCard";
 import "./teacherDashboard.scss";
 import ClassCard from "./teacherMain/classCard";
 import { PeopleAltOutlined } from "@mui/icons-material";
+import { useRef } from "react";
 
 type TProps = {
   user: TUserInfo | null;
@@ -21,6 +22,21 @@ type TProps = {
 };
 
 const TeacherDashboard = (props: TProps) => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    const { current } = scrollContainerRef;
+    if (current) {
+      const scrollAmount = 10000; // Adjust this value as needed
+      current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  
+
   return (
     <div className="teacher-dashboard">
       <TeacherHeader courses={props.courses} />
@@ -58,8 +74,11 @@ const TeacherDashboard = (props: TProps) => {
                 </div>
               </div>
               <div className="teacher-main-subjects-listview">
-                <ArrowBackIosNewIcon />
-                <div className="teacher-main-subjects-container">
+                <ArrowBackIosNewIcon
+                  className="leftArrow"
+                  onClick={() => scroll("left")}
+                />
+                <div className="teacher-main-subjects-container" ref={scrollContainerRef}>
                   {props.courses.length > 0 ? (
                     props.courses.map((item) => (
                       <SubjectCard
@@ -73,7 +92,10 @@ const TeacherDashboard = (props: TProps) => {
                     <p>There is no subjects yet...</p>
                   )}
                 </div>
-                <ArrowBackIosNewIcon className="backArrow" />
+                <ArrowBackIosNewIcon
+                  className="rightArrow"
+                  onClick={() => scroll("right")}
+                />
               </div>
             </div>
           </div>
@@ -86,8 +108,11 @@ const TeacherDashboard = (props: TProps) => {
                 </div>
               </div>
               <div className="teacher-main-subjects-listview">
-                <ArrowBackIosNewIcon />
-                <div className="teacher-main-subjects-container">
+                <ArrowBackIosNewIcon
+                  className="leftArrow"
+                  onClick={() => scroll("left")}
+                />
+                <div className="teacher-main-subjects-container" ref={scrollContainerRef}>
                   {/* <ClassCard /> */}
                   {props.classes.length > 0 ? (
                     props.classes.map((item) => (
@@ -102,7 +127,10 @@ const TeacherDashboard = (props: TProps) => {
                     <p>There is no classes yet...</p>
                   )}
                 </div>
-                <ArrowBackIosNewIcon className="backArrow" />
+                <ArrowBackIosNewIcon
+                  className="rightArrow"
+                  onClick={() => scroll("right")}
+                />
               </div>
             </div>
           </div>
