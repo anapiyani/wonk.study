@@ -5,14 +5,20 @@ import TeacherHeader from "../layout/teacherHeader/teacherHeader";
 import { TCoureses } from "../../../types/types";
 import WelcomeFooter from "../../welcome/layout/welcomeFooter/welcomeFooter";
 import Student from "./student/student";
+import { CircularProgress } from "@mui/material";
 
 type TProps = {
   courses: TCoureses[];
+  students: any[];
+  loading: boolean;
+  error: string | null;
+  grade: string;
+  section: string;
 };
 
 const GradeStudents = (props: TProps) => {
   return (
-    <div className="grade-stundets">
+    <div className="grade-students">
       <TeacherHeader courses={props.courses} />
       <div className="grade-content">
         <div className="header-div">
@@ -27,12 +33,18 @@ const GradeStudents = (props: TProps) => {
               <div className="card-content">
                 <div className="class-card-content">
                   <div className="class-card-body">
-                    <h1 className="class-grade">10A</h1>
+                    <h1 className="class-grade">
+                      {props.grade}
+                      {props.section}
+                    </h1>
                     <h2>GRADE</h2>
                   </div>
                 </div>
                 <div className="text-card">
-                  <h1>10A grade</h1>
+                  <h1>
+                    {props.grade}
+                    {props.section} grade
+                  </h1>
                 </div>
               </div>
             </div>
@@ -40,7 +52,14 @@ const GradeStudents = (props: TProps) => {
         </div>
         <div className="container">
           <div className="students">
-            <Student />
+            {props.loading ? (
+              <CircularProgress className="loading" />
+            ) : (
+              props.students.map((student) => (
+                <Student key={student.id} student={student} />
+              ))
+            )}
+            {props.error ? <p className="error">{props.error}</p> : ""}
           </div>
         </div>
       </div>
