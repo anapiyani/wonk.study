@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import GradeStudents from "../../components/teacher/gradeStudents/gradeStudents";
 import { AppDispatch, RootState } from "../../store/store";
 import { getStudentsByGrade } from "../../store/students.slice";
 
 const GradeStudentsContainer = () => {
   const { grade, section } = useParams<{ grade: string; section: string }>();
+  const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
   const courses = useSelector((state: RootState) => state.info.courses);
   const students = useSelector((state: RootState) => state.students.students);
@@ -22,8 +23,8 @@ const GradeStudentsContainer = () => {
   }, [grade, section, dispatch]);
 
   const onClickStudent = (id: number) => {
-    const student = students.find((student) => student.id === id);
-    console.log(student);
+    console.log(id);
+    navigate(`/teacher-dashboard/${id}`);
   };
 
   return (
