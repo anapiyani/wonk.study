@@ -1,17 +1,23 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axiosWonk from "../config/axiosWonk";
-import { TStudent } from "../types/types";
+import { TStudent, TUserInfo } from "../types/types";
 
 type TInitialState = {
   students: TStudent[];
   students_loading: boolean;
   error: string | null;
+  student_info: TUserInfo | null;
+  student_loading: boolean;
+  student_error: string | null;
 };
 
 const initialState: TInitialState = {
   students: [],
   students_loading: false,
   error: null,
+  student_info: null,
+  student_loading: false,
+  student_error: null,
 };
 
 export const getStudentsByGrade = createAsyncThunk(
@@ -36,6 +42,20 @@ export const getStudentsByGrade = createAsyncThunk(
   }
 );
 
+export const getStudentById = createAsyncThunk(
+  "students/getStudentById",
+  async (id: string | undefined) => {
+    const token = localStorage.getItem("accessToken");
+    const response = await axiosWonk.get(`/users/users/${id}/`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    console.log(response.data);
+    return response.data;
+  }
+);
+
 const studentsSlice = createSlice({
   name: "students",
   initialState,
@@ -52,7 +72,22 @@ const studentsSlice = createSlice({
       .addCase(getStudentsByGrade.rejected, (state, action) => {
         state.students_loading = false;
         state.error = "Ошибка при получении данных" || action.error.message;
-      });
+      })
+      .addCase(getStudentById.pending, (state) => {
+        state.student_loading = true;
+      })
+      .addCase(getStudentById.rejected, (state, action) => {
+        state.student_loading = false;
+        state.student_error =
+          "Ошибка при получении данных о студенте" || action.error.message;
+      })
+      .addCase(
+        getStudentById.fulfilled,
+        (state, action: PayloadAction<TUserInfo>) => {
+          state.student_loading = false;
+          state.student_info = action.payload;
+        }
+      );
   },
 });
 

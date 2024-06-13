@@ -11,6 +11,7 @@ import NotFound from "./components/error/notFound";
 import SettingsContainer from "./containers/teacherSettings/teacherSettingsContainer";
 import SubjectPageContainer from "./containers/teacherContainer/subjectPageContainer/subjectPageContainer";
 import GradeStudentsContainer from "./containers/gradeStudentsContainer/gradeStudentsContainer";
+import StudentProfileContainer from "./containers/stundetProfileContainer/studentProfileContainer";
 
 const App = () => {
   return (
@@ -33,6 +34,10 @@ const App = () => {
             <Route
               path="/teacher-dashboard/grade/:grade/:section"
               element={<GradeStudentsContainer />}
+            />
+            <Route
+              path="/teacher-dashboard/:studentId"
+              element={<StudentProfileContainer />}
             />
           </Route>
         </Routes>
