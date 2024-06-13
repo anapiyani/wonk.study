@@ -45,13 +45,13 @@ const TeacherDashboard = (props: TProps) => {
       <TeacherHeader courses={props.courses} />
       <div className="container">
         <div className="teacher-dashboard-content">
-          {props.loading ? <CircularProgress className="loading" /> : ""}
           <div className="teacher-dashboard-header">
             <div className="teacher-dashboard-greeting">
               <h1>
                 {props.user?.first_name} {props.user?.last_name}
               </h1>
               <h2>{props.user?.role}</h2>
+              {props.loading ? <CircularProgress className="loading" /> : ""}
             </div>
             <div className="teacher-dashboard-menu">
               <Button className="feedBtn">

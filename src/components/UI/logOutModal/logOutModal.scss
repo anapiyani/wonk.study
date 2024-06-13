@@ -1,4 +1,5 @@
 @import '../../../assets/scss/variables.scss';
+@import '../../../assets/scss/mixin';
 .log-out {
     position: absolute;
     top: 0;
@@ -20,6 +21,9 @@
             bottom: 0;
             left: 0;
             right: 0;
+            @include media-sm {
+                margin: 30px;
+            }
             .content-log-out {
                 background-color: white;
                 width: 500px;
@@ -30,6 +34,9 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                @include media-sm {
+                    width: 98%;
+                }
                 .text-content {
                     margin-bottom: 20px;
                     color: $primary;
@@ -37,6 +44,9 @@
                     font-weight: 700;
                 }
                 .buttons {
+                    @include media-sm {
+                        display: flex;
+                    }
                     .button-log-out {
                         font-size: 16px;
                         width: 130px;

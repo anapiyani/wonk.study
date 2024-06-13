@@ -23,7 +23,6 @@ const GradeStudentsContainer = () => {
   }, [grade, section, dispatch]);
 
   const onClickStudent = (id: number) => {
-    console.log(id);
     navigate(`/teacher-dashboard/${id}`);
   };
 

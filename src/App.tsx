@@ -12,6 +12,7 @@ import SettingsContainer from "./containers/teacherSettings/teacherSettingsConta
 import SubjectPageContainer from "./containers/teacherContainer/subjectPageContainer/subjectPageContainer";
 import GradeStudentsContainer from "./containers/gradeStudentsContainer/gradeStudentsContainer";
 import StudentProfileContainer from "./containers/stundetProfileContainer/studentProfileContainer";
+import "./index.scss";
 
 const App = () => {
   return (
