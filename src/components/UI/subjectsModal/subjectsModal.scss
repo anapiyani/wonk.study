@@ -1,3 +1,4 @@
+@import '../../../assets/scss/mixin';
 .subjects-modal {
     position: absolute;
     width: 100%;
@@ -10,16 +11,20 @@
         .subject-modal-content {
             display: flex;
             background-color: white;
-            width: 600px;
+            width: 440px;
             height: auto;
             padding: 40px;
             position: absolute;
             right: 200px;
-            top: 10%;
+            top: 6%;
             flex-wrap: wrap;
             border-radius: 20px;
             text-align: center;
             margin-top: 30px;
+            @include media-md {
+                right: 60px;
+                top: 4%;
+            }
         }
     }
 }
