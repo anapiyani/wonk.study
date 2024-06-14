@@ -64,7 +64,7 @@ const TeacherDashboard = (props: TProps) => {
               </Button>
               <Button className="scheduleBtn">
                 <CalendarMonthIcon className="scheduleIcon" />
-                Schedule
+                Scheduleeeee
               </Button>
             </div>
           </div>
