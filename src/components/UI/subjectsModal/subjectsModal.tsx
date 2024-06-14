@@ -1,6 +1,6 @@
 import { TCoureses } from "../../../types/types";
-import SubjectCard from "../../teacher/dashboard/teacherMain/subjectCard";
 import "./subjectsModal.scss";
+import SubjectsModalCard from "./subjectsModalCards/subjectsModalCards";
 
 type TProps = {
   courses: TCoureses[];
@@ -13,7 +13,7 @@ const SubjectsModal = (props: TProps) => {
       <div onClick={props.handleOpenSubjectModal} className="backdrop">
         <div className="subject-modal-content">
           {props.courses.map((item) => (
-            <SubjectCard
+            <SubjectsModalCard
               key={item.id}
               id={item.id}
               course_img={item.course_img}

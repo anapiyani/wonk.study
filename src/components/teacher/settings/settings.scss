@@ -24,7 +24,6 @@
       
       & .settings-password {
         padding: 15px 20px 15px 20px;
-        width: 100%;
         border-radius: 10px;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         margin-top: 20px;
@@ -45,6 +44,14 @@
               display: flex;
               justify-content: space-between;
               gap: 16px;
+              @include media-md {
+                flex-direction: column;
+                gap: 0;
+              }
+              @include media-sm {
+                flex-direction: column;
+                gap: 0;
+              }
 
               & .inputs {
                 width: 100%;
@@ -55,9 +62,11 @@
                 }
                 @include media-md {
                   width: 100%;
+
                 }
                 @include media-sm {
                   width: 100%;
+                  margin-bottom: 20px;
                 }
                 &:hover {
                   border-color: $primary;
