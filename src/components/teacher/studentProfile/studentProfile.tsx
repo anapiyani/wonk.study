@@ -5,7 +5,7 @@ import { RootState } from "../../../store/store";
 import WelcomeFooter from "../../welcome/layout/welcomeFooter/welcomeFooter";
 import KeyboardBackspaceOutlinedIcon from "@mui/icons-material/KeyboardBackspaceOutlined";
 import { Link } from "react-router-dom";
-import { Alert, CircularProgress } from "@mui/material";
+import { Alert, Skeleton } from "@mui/material";
 
 type TProps = {
   student_image: string | null | undefined;
@@ -42,21 +42,34 @@ const StudentProfile = (props: TProps) => {
               </div>
               <div className="card-content">
                 <div className="class-card-content">
-                  <div className="class-card-body">
-                    <img
-                      src={
-                        props.student_image
-                          ? props.student_image
-                          : "https://cdn.pixabay.com/photo/2021/06/07/13/46/user-6318008_640.png"
-                      }
-                      className="class-grade"
-                    ></img>
-                  </div>
+                  {props.loading ? (
+                    <Skeleton
+                      variant="rectangular"
+                      width={120}
+                      height={120}
+                      style={{ borderRadius: 12 }}
+                    />
+                  ) : (
+                    <div className="class-card-body">
+                      <img
+                        src={
+                          props.student_image
+                            ? props.student_image
+                            : "https://cdn.pixabay.com/photo/2021/06/07/13/46/user-6318008_640.png"
+                        }
+                        className="class-grade"
+                      ></img>
+                    </div>
+                  )}
                 </div>
                 <div className="text-card">
-                  <h1>
-                    {props.student_first_name} {props.student_last_name}
-                  </h1>
+                  {props.loading ? (
+                    <Skeleton width={200} height={40} />
+                  ) : (
+                    <h1>
+                      {props.student_first_name} {props.student_last_name}
+                    </h1>
+                  )}
                 </div>
               </div>
             </div>
@@ -65,7 +78,33 @@ const StudentProfile = (props: TProps) => {
         <div className="container">
           <div className="about-student">
             {props.loading ? (
-              <CircularProgress className="loading-student" />
+              <div className="student-info-content">
+                <div className="header-role">
+                  <Skeleton width={100} height={30} />
+                </div>
+                <div className="info">
+                  <div className="info-content">
+                    <p>Full name</p>
+                    <Skeleton width={200} height={20} />
+                  </div>
+                  <div className="info-content">
+                    <p>IIN</p>
+                    <Skeleton width={200} height={20} />
+                  </div>
+                  <div className="info-content">
+                    <p>Gender</p>
+                    <Skeleton width={200} height={20} />
+                  </div>
+                  <div className="info-content">
+                    <p>Email</p>
+                    <Skeleton width={200} height={20} />
+                  </div>
+                  <div className="info-content">
+                    <p>Phone number</p>
+                    <Skeleton width={200} height={20} />
+                  </div>
+                </div>
+              </div>
             ) : (
               <div className="student-info-content">
                 <div className="header-role">
@@ -97,11 +136,7 @@ const StudentProfile = (props: TProps) => {
                 </div>
               </div>
             )}
-            {props.isError ? (
-              <Alert severity="error">{props.isError}</Alert>
-            ) : (
-              ""
-            )}
+            {props.isError && <Alert severity="error">{props.isError}</Alert>}
           </div>
         </div>
       </div>
