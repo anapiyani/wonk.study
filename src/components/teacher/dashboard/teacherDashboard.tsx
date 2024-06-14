@@ -1,7 +1,7 @@
 import { TClasses, TCoureses, TUserInfo } from "../../../types/types";
 import WelcomeFooter from "../../welcome/layout/welcomeFooter/welcomeFooter";
 import TeacherHeader from "../layout/teacherHeader/teacherHeader";
-import { Button, CircularProgress } from "@mui/material";
+import { Button } from "@mui/material";
 import { FaRegNewspaper } from "react-icons/fa6";
 import { MdOutlineGrade } from "react-icons/md";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
@@ -13,6 +13,7 @@ import ClassCard from "./teacherMain/classCard";
 import { PeopleAltOutlined } from "@mui/icons-material";
 import { useRef } from "react";
 import SubjectModal from "../../UI/subjectModal/subjectModal";
+import Skeleton from "@mui/material/Skeleton";
 
 type TProps = {
   user: TUserInfo | null;
@@ -56,11 +57,18 @@ const TeacherDashboard = (props: TProps) => {
         <div className="teacher-dashboard-content">
           <div className="teacher-dashboard-header">
             <div className="teacher-dashboard-greeting">
-              <h1>
-                {props.user?.first_name} {props.user?.last_name}
-              </h1>
-              <h2>{props.user?.role}</h2>
-              {props.loading ? <CircularProgress className="loading" /> : ""}
+              {props.loading ? (
+                <Skeleton width={600} height={60} animation="wave" />
+              ) : (
+                <h1>
+                  {props.user?.first_name} {props.user?.last_name}
+                </h1>
+              )}
+              {props.loading ? (
+                <Skeleton width={100} height={60} animation="wave" />
+              ) : (
+                <h2>{props.user?.role}</h2>
+              )}
             </div>
             <div className="teacher-dashboard-menu">
               <Button className="feedBtn">
@@ -94,7 +102,18 @@ const TeacherDashboard = (props: TProps) => {
                   className="teacher-main-subjects-container"
                   ref={subjectsContainerRef}
                 >
-                  {props.courses.length > 0 ? (
+                  {props.loading ? (
+                    Array.from(new Array(5)).map((_, index) => (
+                      <Skeleton
+                        key={index}
+                        variant="rectangular"
+                        width={210}
+                        height={118}
+                        animation="wave"
+                        style={{ marginRight: 10 }}
+                      />
+                    ))
+                  ) : props.courses.length > 0 ? (
                     props.courses.map((item) => (
                       <SubjectCard
                         handleClickSubject={handleOpenSubjectModal}
@@ -132,7 +151,18 @@ const TeacherDashboard = (props: TProps) => {
                   className="teacher-main-subjects-container"
                   ref={classesContainerRef}
                 >
-                  {props.classes.length > 0 ? (
+                  {props.loading ? (
+                    Array.from(new Array(6)).map((_, index) => (
+                      <Skeleton
+                        key={index}
+                        variant="rectangular"
+                        width={210}
+                        height={118}
+                        animation="wave"
+                        style={{ marginRight: 10 }}
+                      />
+                    ))
+                  ) : props.classes.length > 0 ? (
                     props.classes.map((item) => (
                       <ClassCard
                         key={item.id}
@@ -156,9 +186,9 @@ const TeacherDashboard = (props: TProps) => {
         </div>
       </div>
       {props.openSubjectModal && (
-        <SubjectModal 
-          subjectId={props.selectedSubjectId} 
-          handleClose={props.handleCloseSubjectModal} 
+        <SubjectModal
+          subjectId={props.selectedSubjectId}
+          handleClose={props.handleCloseSubjectModal}
         />
       )}
       <WelcomeFooter />

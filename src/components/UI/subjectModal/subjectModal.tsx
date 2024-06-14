@@ -3,7 +3,7 @@ import "./subjectModal.scss";
 import Grade from "./grade/grade";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, Skeleton } from "@mui/material";
 
 type SubjectModalProps = {
   subjectId: number | null;
@@ -27,19 +27,26 @@ const SubjectModal = ({ subjectId, handleClose }: SubjectModalProps) => {
               <p>Select the grade</p>
             </div>
             <div className="grades">
-              {loading ? (
-                <CircularProgress className="loading" />
-              ) : subjectClassess.length > 0 ? (
-                subjectClassess.map((item) => (
-                  <Grade
-                    parallels={item.parallel}
-                    key={item.parallel}
-                    classesSubject={item.classes}
-                  />
-                ))
-              ) : (
-                ""
-              )}
+              {loading
+                ? Array.from(new Array(2)).map((_, index) => (
+                    <Skeleton
+                      key={index}
+                      variant="rectangular"
+                      width={210}
+                      height={118}
+                      animation="wave"
+                      style={{ marginRight: 10 }}
+                    />
+                  ))
+                : subjectClassess.length > 0
+                ? subjectClassess.map((item) => (
+                    <Grade
+                      parallels={item.parallel}
+                      key={item.parallel}
+                      classesSubject={item.classes}
+                    />
+                  ))
+                : ""}
             </div>
           </div>
         </div>
