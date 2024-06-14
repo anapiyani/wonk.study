@@ -12,6 +12,7 @@ import "./teacherDashboard.scss";
 import ClassCard from "./teacherMain/classCard";
 import { PeopleAltOutlined } from "@mui/icons-material";
 import { useRef } from "react";
+import SubjectModal from "../../UI/subjectModal/subjectModal";
 
 type TProps = {
   user: TUserInfo | null;
@@ -20,6 +21,10 @@ type TProps = {
   courses: TCoureses[];
   classes: TClasses[];
   handleClassOpen: (grade: string, section: string) => void;
+  handleClickSubject: (id: number) => void;
+  openSubjectModal: boolean;
+  handleCloseSubjectModal: () => void;
+  selectedSubjectId: number | null;
 };
 
 const TeacherDashboard = (props: TProps) => {
@@ -38,6 +43,10 @@ const TeacherDashboard = (props: TProps) => {
         behavior: "smooth",
       });
     }
+  };
+
+  const handleOpenSubjectModal = (id: number) => {
+    props.handleClickSubject(id);
   };
 
   return (
@@ -64,7 +73,7 @@ const TeacherDashboard = (props: TProps) => {
               </Button>
               <Button className="scheduleBtn">
                 <CalendarMonthIcon className="scheduleIcon" />
-                Scheduleeeee
+                Schedule
               </Button>
             </div>
           </div>
@@ -88,6 +97,7 @@ const TeacherDashboard = (props: TProps) => {
                   {props.courses.length > 0 ? (
                     props.courses.map((item) => (
                       <SubjectCard
+                        handleClickSubject={handleOpenSubjectModal}
                         key={item.id}
                         id={item.id}
                         course_img={item.course_img}
@@ -122,7 +132,6 @@ const TeacherDashboard = (props: TProps) => {
                   className="teacher-main-subjects-container"
                   ref={classesContainerRef}
                 >
-                  {/* <ClassCard /> */}
                   {props.classes.length > 0 ? (
                     props.classes.map((item) => (
                       <ClassCard
@@ -146,6 +155,12 @@ const TeacherDashboard = (props: TProps) => {
           </div>
         </div>
       </div>
+      {props.openSubjectModal && (
+        <SubjectModal 
+          subjectId={props.selectedSubjectId} 
+          handleClose={props.handleCloseSubjectModal} 
+        />
+      )}
       <WelcomeFooter />
     </div>
   );

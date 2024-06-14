@@ -3,6 +3,7 @@ import axiosWonk from "../config/axiosWonk";
 import {
   TClasses,
   TCoureses,
+  TSubjectClasses,
   TtoChangeEmail,
   TtoChangePassword,
   TUserInfo,
@@ -17,6 +18,8 @@ type TStateInitial = {
   errorOnChange: string | null;
   loadingChange: boolean;
   successChange: boolean;
+  subjectClasses: TSubjectClasses[];
+  subjectLoading: boolean;
 };
 
 const initialState: TStateInitial = {
@@ -28,6 +31,8 @@ const initialState: TStateInitial = {
   errorOnChange: null,
   loadingChange: false,
   successChange: false,
+  subjectClasses: [],
+  subjectLoading: false,
 };
 
 export const accessPermission = createAsyncThunk(
@@ -86,6 +91,22 @@ export const changeEmail = createAsyncThunk(
     const response = await axiosWonk.put(
       "/users/user/change-email/",
       newEmail,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response.data;
+  }
+);
+
+export const gradesSubject = createAsyncThunk(
+  "info/gradesSubject",
+  async (course_id: number) => {
+    const token = localStorage.getItem("accessToken");
+    const response = await axiosWonk.get(
+      `/courses/teacher-classes/${course_id}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -160,7 +181,24 @@ const infoSlice = createSlice({
       .addCase(changeEmail.fulfilled, (state) => {
         state.successChange = true;
         state.loadingChange = false;
-      });
+      })
+
+      .addCase(gradesSubject.pending, (state) => {
+        state.subjectLoading = true;
+      })
+      .addCase(gradesSubject.rejected, (state, action) => {
+        state.isError =
+          "Ошибка при получении данных, попробуйте перезагрузить страницу!" ||
+          action.error.message;
+        state.subjectLoading = false;
+      })
+      .addCase(
+        gradesSubject.fulfilled,
+        (state, action: PayloadAction<TSubjectClasses[]>) => {
+          state.subjectClasses = action.payload;
+          state.subjectLoading = false;
+        }
+      );
   },
 });
 
