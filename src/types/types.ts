@@ -62,3 +62,15 @@ export type TStudent = {
   role: string;
   section: string;
 };
+
+export type TClass = {
+  id: number;
+  course: TCoureses;
+  grade_level: string;
+  section: string;
+};
+
+export type TSubjectClasses = {
+  classes: TClass[];
+  parallel: string;
+};

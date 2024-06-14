@@ -1,18 +1,45 @@
+import CloseIcon from "@mui/icons-material/Close";
 import "./subjectModal.scss";
+import Grade from "./grade/grade";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store/store";
+import { CircularProgress } from "@mui/material";
 
-const SubjectModal = () => {
+type SubjectModalProps = {
+  subjectId: number | null;
+  handleClose: () => void;
+};
+
+const SubjectModal = ({ subjectId, handleClose }: SubjectModalProps) => {
+  const subjectClassess = useSelector(
+    (state: RootState) => state.info.subjectClasses
+  );
+  const loading = useSelector((state: RootState) => state.info.subjectLoading);
   return (
     <div className="subject-modal">
-      <div className="backdrop">
+      <div className="backdrop" onClick={handleClose}>
         <div className="subject-modal-content">
+          <button onClick={handleClose}>
+            <CloseIcon />
+          </button>
           <div className="grade-select">
             <div className="select-text">
               <p>Select the grade</p>
             </div>
-            <div className="grade">
-              <div className="grade-bg">
-                <div className="image"></div>
-              </div>
+            <div className="grades">
+              {loading ? (
+                <CircularProgress className="loading" />
+              ) : subjectClassess.length > 0 ? (
+                subjectClassess.map((item) => (
+                  <Grade
+                    parallels={item.parallel}
+                    key={item.parallel}
+                    classesSubject={item.classes}
+                  />
+                ))
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </div>

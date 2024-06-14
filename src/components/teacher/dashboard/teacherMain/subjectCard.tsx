@@ -5,11 +5,12 @@ type TProps = {
   id: number;
   course_img: string | null;
   name: string;
+  handleClickSubject: (id: number) => void;
 };
 
 const SubjectCard = (props: TProps) => {
   const handleClickSubject = () => {
-    console.log(`clicked to  ${props.name} ${props.id}`);
+    props.handleClickSubject(props.id);
   };
 
   return (

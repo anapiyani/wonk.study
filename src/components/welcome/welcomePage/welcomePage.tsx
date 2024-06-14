@@ -87,7 +87,7 @@ const WelcomePage = (props: TProps) => {
                   </li>
                   <li>
                     <NavLink className="navLink" to="/contact">
-                      Contactsss
+                      Contacts
                     </NavLink>
                   </li>
                   {tokenAccess ? (
