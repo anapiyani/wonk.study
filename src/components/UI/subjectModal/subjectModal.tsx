@@ -32,8 +32,8 @@ const SubjectModal = ({ subjectId, handleClose }: SubjectModalProps) => {
                     <Skeleton
                       key={index}
                       variant="rectangular"
-                      width={210}
-                      height={118}
+                      width={140}
+                      height={120}
                       animation="wave"
                       style={{ marginRight: 10 }}
                     />

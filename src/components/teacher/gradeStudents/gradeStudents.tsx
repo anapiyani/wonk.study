@@ -5,7 +5,7 @@ import TeacherHeader from "../layout/teacherHeader/teacherHeader";
 import { TCoureses } from "../../../types/types";
 import WelcomeFooter from "../../welcome/layout/welcomeFooter/welcomeFooter";
 import Student from "./student/student";
-import { CircularProgress } from "@mui/material";
+import { Skeleton } from "@mui/material";
 
 type TProps = {
   courses: TCoureses[];
@@ -53,17 +53,25 @@ const GradeStudents = (props: TProps) => {
         </div>
         <div className="container">
           <div className="students">
-            {props.loading ? (
-              <CircularProgress className="loading" />
-            ) : (
-              props.students.map((student) => (
-                <Student
-                  key={student.id}
-                  student={student}
-                  onClickStudent={props.onClickStudent}
-                />
-              ))
-            )}
+            {props.loading
+              ? Array.from(new Array(14)).map((_, index) => (
+                  <Skeleton
+                    className="skelet"
+                    key={index}
+                    variant="rectangular"
+                    width={240}
+                    height={240}
+                    animation="wave"
+                    style={{ marginRight: 10 }}
+                  />
+                ))
+              : props.students.map((student) => (
+                  <Student
+                    key={student.id}
+                    student={student}
+                    onClickStudent={props.onClickStudent}
+                  />
+                ))}
             {props.error ? <p className="error">{props.error}</p> : ""}
           </div>
         </div>
