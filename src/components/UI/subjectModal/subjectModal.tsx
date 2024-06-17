@@ -3,7 +3,7 @@ import "./subjectModal.scss";
 import Grade from "./grade/grade";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
-import { CircularProgress, Skeleton } from "@mui/material";
+import { Skeleton } from "@mui/material";
 
 type SubjectModalProps = {
   subjectId: number | null;
@@ -15,6 +15,7 @@ const SubjectModal = ({ subjectId, handleClose }: SubjectModalProps) => {
     (state: RootState) => state.info.subjectClasses
   );
   const loading = useSelector((state: RootState) => state.info.subjectLoading);
+
   return (
     <div className="subject-modal">
       <div className="backdrop" onClick={handleClose}>

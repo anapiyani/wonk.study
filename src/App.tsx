@@ -40,7 +40,10 @@ const App = () => {
               path="/teacher-dashboard/:studentId"
               element={<StudentProfileContainer />}
             />
-            <Route path="/teacher-dashboard/:subject/:grade" element={<SubjectPageContainer />} />
+            <Route
+              path="/teacher-dashboard/:subject/:grade"
+              element={<SubjectPageContainer />}
+            />
           </Route>
         </Routes>
       </BrowserRouter>
