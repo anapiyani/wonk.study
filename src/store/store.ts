@@ -3,6 +3,7 @@ import emailReducer from "./email.slice";
 import loginReducer from "./login.slice";
 import infoReducer from "./info.slice";
 import studentsReducer from "./students.slice";
+import subjectReducer from "./subject.slice";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     login: loginReducer,
     info: infoReducer,
     students: studentsReducer,
+    subject: subjectReducer,
   },
 });
 

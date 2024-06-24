@@ -4,15 +4,30 @@ import WelcomeFooter from "../../welcome/layout/welcomeFooter/welcomeFooter";
 import { TCoureses } from "../../../types/types";
 import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
 import KeyboardBackspaceOutlinedIcon from "@mui/icons-material/KeyboardBackspaceOutlined";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Button } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../store/store";
+import { subjectInfo } from "../../../store/subject.slice";
 
 type TProps = {
   courses: TCoureses[];
 };
 
 const SubjectPage = (props: TProps) => {
+  const dispatch = useDispatch<AppDispatch>();
+  const params = useParams();
+  const subjectName = useSelector(
+    (state: RootState) => state.subject.subjectName
+  );
+  // const isLoading = useSelector((state: RootState) => state.subject.isLoading); Es wird, wenn ich skeletion usw. hinzufüge
+
+  useEffect(() => {
+    dispatch(subjectInfo(params.subject));
+  }, [dispatch]);
+
   return (
     <div className="grade-students">
       <TeacherHeader courses={props.courses} />
@@ -29,12 +44,14 @@ const SubjectPage = (props: TProps) => {
               <div className="card-content">
                 <div className="class-card-content">
                   <div className="class-card-body">
-                    <h1 className="class-grade">10</h1>
+                    <h1 className="class-grade">{params.grade}</h1>
                     <h2>GRADE</h2>
                   </div>
                 </div>
                 <div className="text-card">
-                  <h1>History | 10 Grade</h1>
+                  <h1>
+                    {subjectName} | {params.grade} Grade
+                  </h1>
                 </div>
               </div>
             </div>

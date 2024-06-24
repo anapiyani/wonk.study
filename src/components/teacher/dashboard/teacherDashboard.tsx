@@ -8,12 +8,12 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import BookOutlinedIcon from "@mui/icons-material/BookOutlined";
 import SubjectCard from "../dashboard/teacherMain/subjectCard";
-import "./teacherDashboard.scss";
 import ClassCard from "./teacherMain/classCard";
 import { PeopleAltOutlined } from "@mui/icons-material";
 import { useRef } from "react";
 import SubjectModal from "../../UI/subjectModal/subjectModal";
 import Skeleton from "@mui/material/Skeleton";
+import "./teacherDashboard.scss";
 
 type TProps = {
   user: TUserInfo | null;
