@@ -12,9 +12,7 @@ const GradeStudentsContainer = () => {
   const courses = useSelector((state: RootState) => state.info.courses);
   const students = useSelector((state: RootState) => state.students.students);
   const error = useSelector((state: RootState) => state.students.error);
-  const loading = useSelector(
-    (state: RootState) => state.students.students_loading
-  );
+  const loading = useSelector((state: RootState) => state.students.students_loading);
 
   useEffect(() => {
     if (grade && section) {

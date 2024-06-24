@@ -8,10 +8,7 @@ type StudentProps = {
 
 const Student = (props: StudentProps) => {
   return (
-    <div
-      onClick={() => props.onClickStudent(props.student.id)}
-      className="student-component"
-    >
+    <div onClick={() => props.onClickStudent(props.student.id)} className="student-component">
       <div className="student-info-all">
         <div className="student-picture">
           <img

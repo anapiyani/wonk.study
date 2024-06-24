@@ -2,12 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Settings from "../../components/teacher/settings/settings";
 import { AppDispatch, RootState } from "../../store/store";
 import { useEffect, useState } from "react";
-import {
-  changeEmail,
-  changePassword,
-  removeError,
-  removieSuccess,
-} from "../../store/info.slice";
+import { changeEmail, changePassword, removeError, removieSuccess } from "../../store/info.slice";
 import { TtoChangePassword } from "../../types/types";
 
 const SettingsContainer = () => {
@@ -16,18 +11,11 @@ const SettingsContainer = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [showNewPassword, setShowNewPassword] = useState<boolean>(false);
   const dispatch = useDispatch<AppDispatch>();
-  const changeSuccess = useSelector(
-    (state: RootState) => state.info.successChange
-  );
-  const changeLoading = useSelector(
-    (state: RootState) => state.info.loadingChange
-  );
+  const changeSuccess = useSelector((state: RootState) => state.info.successChange);
+  const changeLoading = useSelector((state: RootState) => state.info.loadingChange);
   const changeErr = useSelector((state: RootState) => state.info.errorOnChange);
 
-  const updateEmail = (
-    e: React.FormEvent<HTMLFormElement>,
-    newEmail: string
-  ) => {
+  const updateEmail = (e: React.FormEvent<HTMLFormElement>, newEmail: string) => {
     e.preventDefault();
     const toUpdateEmail = {
       email: newEmail,

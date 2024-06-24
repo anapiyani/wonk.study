@@ -36,8 +36,7 @@ const StudentProfile = (props: TProps) => {
                   className="link-back"
                   to={`/teacher-dashboard/grade/${props.grade}/${props.section}`}
                 >
-                  <KeyboardBackspaceOutlinedIcon className="icon-back" /> Go
-                  back
+                  <KeyboardBackspaceOutlinedIcon className="icon-back" /> Go back
                 </Link>
               </div>
               <div className="card-content">

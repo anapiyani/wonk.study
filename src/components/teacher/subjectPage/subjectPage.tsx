@@ -19,9 +19,7 @@ type TProps = {
 const SubjectPage = (props: TProps) => {
   const dispatch = useDispatch<AppDispatch>();
   const params = useParams();
-  const subjectName = useSelector(
-    (state: RootState) => state.subject.subjectName
-  );
+  const subjectName = useSelector((state: RootState) => state.subject.subjectName);
   // const isLoading = useSelector((state: RootState) => state.subject.isLoading); Es wird, wenn ich skeletion usw. hinzufüge
 
   useEffect(() => {
@@ -37,8 +35,7 @@ const SubjectPage = (props: TProps) => {
             <div className="container">
               <div className="back">
                 <Link className="link-back" to="/teacher-dashboard">
-                  <KeyboardBackspaceOutlinedIcon className="icon-back" /> Go
-                  back
+                  <KeyboardBackspaceOutlinedIcon className="icon-back" /> Go back
                 </Link>
               </div>
               <div className="card-content">
@@ -61,41 +58,25 @@ const SubjectPage = (props: TProps) => {
           <div className="page-content">
             <div className="element-subject">
               <h1>Description</h1>
-              <Button
-                className="btn-subject"
-                variant="outlined"
-                startIcon={<EditIcon />}
-              >
+              <Button className="btn-subject" variant="outlined" startIcon={<EditIcon />}>
                 Change description
               </Button>
             </div>
             <div className="element-subject">
               <h1>Lesson plan</h1>
-              <Button
-                className="btn-subject"
-                variant="outlined"
-                startIcon={<EditIcon />}
-              >
+              <Button className="btn-subject" variant="outlined" startIcon={<EditIcon />}>
                 Create lesson plan
               </Button>
             </div>
             <div className="element-subject">
               <h1>Homeworks</h1>
-              <Button
-                className="btn-subject"
-                variant="outlined"
-                startIcon={<SpaceDashboardIcon />}
-              >
+              <Button className="btn-subject" variant="outlined" startIcon={<SpaceDashboardIcon />}>
                 Open homeworks
               </Button>
             </div>
             <div className="element-subject">
               <h1>Grades</h1>
-              <Button
-                className="btn-subject"
-                variant="outlined"
-                startIcon={<SpaceDashboardIcon />}
-              >
+              <Button className="btn-subject" variant="outlined" startIcon={<SpaceDashboardIcon />}>
                 Manage exam grades
               </Button>
             </div>

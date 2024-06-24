@@ -9,10 +9,7 @@ type TProps = {
 
 const ClassCard = (props: TProps) => {
   return (
-    <div
-      onClick={() => props.handleClassOpen(props.grade, props.section)}
-      className="class-card"
-    >
+    <div onClick={() => props.handleClassOpen(props.grade, props.section)} className="class-card">
       <div className="class-card-content">
         <div className="class-card-body">
           <h1 className="class-grade">

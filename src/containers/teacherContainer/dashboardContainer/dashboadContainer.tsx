@@ -15,9 +15,7 @@ const DashboardContainer = () => {
   const classes = useSelector((state: RootState) => state.info.classes);
 
   const [openSubjectModal, setOpenSubjectModal] = useState<boolean>(false);
-  const [selectedSubjectId, setSelectedSubjectId] = useState<number | null>(
-    null
-  );
+  const [selectedSubjectId, setSelectedSubjectId] = useState<number | null>(null);
 
   const handleClassOpen = (grade: string, section: string) => {
     navigate(`/teacher-dashboard/grade/${grade}/${section}`);
