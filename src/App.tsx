@@ -1,18 +1,23 @@
 import { Routes, BrowserRouter, Route } from "react-router-dom";
-import WelcomeContainer from "./containers/welcomeContainer/welcomeContainer";
-// import AboutUs from "./components/welcome/aboutUs/aboutUs";
-import AboutUs from "@/components/welcome/aboutUs/aboutUs";
-import ContactUs from "./components/welcome/contactsUs/contactsUs";
-import PrivacyPolicy from "./components/welcome/policy/privacyPolicy";
-import TermsOfUse from "./components/welcome/termsOfUse/termsOfUse";
-import LoginContainer from "./containers/loginContainer/loginContainer";
-import DashboardContainer from "./containers/teacherContainer/dashboardContainer/dashboadContainer";
-import PrivateRoutes from "./utils/privateRoutes";
-import NotFound from "./components/error/notFound";
-import SettingsContainer from "./containers/teacherSettings/teacherSettingsContainer";
-import SubjectPageContainer from "./containers/teacherContainer/subjectPageContainer/subjectPageContainer";
-import GradeStudentsContainer from "./containers/gradeStudentsContainer/gradeStudentsContainer";
-import StudentProfileContainer from "./containers/stundetProfileContainer/studentProfileContainer";
+import {
+  AboutUs,
+  ContactUs,
+  PrivacyPolicy,
+  TermsOfUse,
+} from "@/components/welcome";
+
+import PrivateRoutes from "@/utils/privateRoutes";
+import NotFound from "@/components/error/notFound";
+import {
+  GradeStudentsContainer,
+  LoginContainer,
+  StudentProfileContainer,
+  DashboardContainer,
+  SubjectPageContainer,
+  SettingsContainer,
+  WelcomeContainer,
+} from "@/containers";
+
 import "./index.scss";
 
 const App = () => {
