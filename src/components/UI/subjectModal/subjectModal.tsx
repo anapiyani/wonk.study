@@ -10,9 +10,13 @@ type SubjectModalProps = {
   handleClose: () => void;
 };
 
-const SubjectModal = ({ subjectId, handleClose }: SubjectModalProps) => {
-  const subjectClassess = useSelector((state: RootState) => state.subject.subjectClasses);
-  const loading = useSelector((state: RootState) => state.subject.subjectLoading);
+const SubjectModal = ({ handleClose }: SubjectModalProps) => {
+  const subjectClassess = useSelector(
+    (state: RootState) => state.subject.subjectClasses
+  );
+  const loading = useSelector(
+    (state: RootState) => state.subject.subjectLoading
+  );
 
   return (
     <div className="subject-modal">
@@ -38,14 +42,14 @@ const SubjectModal = ({ subjectId, handleClose }: SubjectModalProps) => {
                     />
                   ))
                 : subjectClassess.length > 0
-                  ? subjectClassess.map((item) => (
-                      <Grade
-                        parallels={item.parallel}
-                        key={item.parallel}
-                        classesSubject={item.classes}
-                      />
-                    ))
-                  : ""}
+                ? subjectClassess.map((item) => (
+                    <Grade
+                      parallels={item.parallel}
+                      key={item.parallel}
+                      classesSubject={item.classes}
+                    />
+                  ))
+                : ""}
             </div>
           </div>
         </div>
