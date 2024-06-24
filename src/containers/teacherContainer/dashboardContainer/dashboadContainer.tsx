@@ -3,7 +3,7 @@ import TeacherDashboard from "../../../components/teacher/dashboard/teacherDashb
 import { AppDispatch, RootState } from "../../../store/store";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { gradesSubject } from "../../../store/info.slice";
+import { gradesSubject } from "../../../store/subject.slice";
 
 const DashboardContainer = () => {
   const dispatch = useDispatch<AppDispatch>();

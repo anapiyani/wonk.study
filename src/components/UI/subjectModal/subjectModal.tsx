@@ -12,9 +12,11 @@ type SubjectModalProps = {
 
 const SubjectModal = ({ subjectId, handleClose }: SubjectModalProps) => {
   const subjectClassess = useSelector(
-    (state: RootState) => state.info.subjectClasses
+    (state: RootState) => state.subject.subjectClasses
   );
-  const loading = useSelector((state: RootState) => state.info.subjectLoading);
+  const loading = useSelector(
+    (state: RootState) => state.subject.subjectLoading
+  );
 
   return (
     <div className="subject-modal">
