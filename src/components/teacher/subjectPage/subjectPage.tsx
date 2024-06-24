@@ -5,7 +5,7 @@ import { TCoureses } from "../../../types/types";
 import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
 import KeyboardBackspaceOutlinedIcon from "@mui/icons-material/KeyboardBackspaceOutlined";
 import { Link, useParams } from "react-router-dom";
-import { Alert, Button } from "@mui/material";
+import { Alert, Button, Skeleton } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,8 +19,15 @@ type TProps = {
 const SubjectPage = (props: TProps) => {
   const dispatch = useDispatch<AppDispatch>();
   const params = useParams();
+<<<<<<< HEAD
   const subjectName = useSelector((state: RootState) => state.subject.subjectName);
   // const isLoading = useSelector((state: RootState) => state.subject.isLoading); Es wird, wenn ich skeletion usw. hinzufüge
+=======
+  const subjectName = useSelector(
+    (state: RootState) => state.subject.subjectName
+  );
+  const isLoading = useSelector((state: RootState) => state.subject.isLoading);
+>>>>>>> 6ff31a2 (Added skeletion for subject page)
   const isError = useSelector((state: RootState) => state.subject.isError);
 
   useEffect(() => {
@@ -48,15 +55,33 @@ const SubjectPage = (props: TProps) => {
               </div>
               <div className="card-content">
                 <div className="class-card-content">
-                  <div className="class-card-body">
-                    <h1 className="class-grade">{params.grade}</h1>
-                    <h2>GRADE</h2>
-                  </div>
+                  {isLoading ? (
+                    <Skeleton
+                      variant="rectangular"
+                      width={120}
+                      height={120}
+                      style={{ borderRadius: 12 }}
+                    />
+                  ) : (
+                    <div className="class-card-body">
+                      <h1 className="class-grade">{params.grade}</h1>
+                      <h2>GRADE</h2>
+                    </div>
+                  )}
                 </div>
                 <div className="text-card">
-                  <h1>
-                    {subjectName} | {params.grade} Grade
-                  </h1>
+                  {isLoading ? (
+                    <Skeleton
+                      variant="rectangular"
+                      width={350}
+                      height={60}
+                      style={{ borderRadius: 12 }}
+                    />
+                  ) : (
+                    <h1>
+                      {subjectName} | {params.grade} Grade
+                    </h1>
+                  )}
                 </div>
               </div>
             </div>

@@ -66,9 +66,11 @@ const subjectSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(subjectInfo.rejected, (state, action) => {
+        state.isLoading = false;
         state.isError = "Error getting subject info" || action.error.message;
       })
       .addCase(subjectInfo.fulfilled, (state, action) => {
+        state.isLoading = false;
         state.subjectName = action.payload.name;
       });
   },
