@@ -16,11 +16,13 @@ const initialState: TInitialState = {
   token: null,
 };
 
-export const loginPost = createAsyncThunk("login/loginPost", async (body: TLoginUser) => {
-  const response = await axiosWonk.post("/users/user/login/", body);
-  console.log(response.data);
-  return response.data;
-});
+export const loginPost = createAsyncThunk(
+  "login/loginPost",
+  async (body: TLoginUser) => {
+    const response = await axiosWonk.post("/users/user/login/", body);
+    return response.data;
+  }
+);
 
 const loginSlice = createSlice({
   name: "login",
