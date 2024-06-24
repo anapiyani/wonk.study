@@ -42,7 +42,6 @@
       & .choose-language {
         margin-left: 30px;
         @include media-sm {
-         
         }
         & p {
           cursor: pointer;
@@ -120,7 +119,6 @@
   }
 }
 
-
 .show {
   display: block;
 }
@@ -168,7 +166,6 @@
         margin-top: 20px;
         background-color: white;
         color: $primary;
-        
       }
     }
   }
