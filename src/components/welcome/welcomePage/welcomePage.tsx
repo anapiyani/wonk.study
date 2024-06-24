@@ -92,11 +92,7 @@ const WelcomePage = (props: TProps) => {
                   </li>
                   {tokenAccess ? (
                     <li className="li-welcome">
-                      <Button
-                        onClick={hadnleLogOut}
-                        variant="outlined"
-                        className="log-out-welcome"
-                      >
+                      <Button onClick={hadnleLogOut} variant="outlined" className="log-out-welcome">
                         Log out
                       </Button>
                     </li>
@@ -113,19 +109,14 @@ const WelcomePage = (props: TProps) => {
             <div className="promo-content">
               <div className="promo-headers">
                 <h1>Welcome to Wonk!🍎</h1>
-                <p>
-                  AI powered virual assistant for both teachers and students
-                </p>
+                <p>AI powered virual assistant for both teachers and students</p>
               </div>
               <div className="sides-choose">
                 <div className="side login">
                   <div className="side-content">
                     <div className="side-texts">
                       <p className="side-header-login">
-                        <FontAwesomeIcon
-                          icon={faEarthAsia}
-                          className="icon-welcome"
-                        />
+                        <FontAwesomeIcon icon={faEarthAsia} className="icon-welcome" />
                         Use the website
                       </p>
                       <p className="side-content-download email">
@@ -153,18 +144,12 @@ const WelcomePage = (props: TProps) => {
                       </p>
                     </div>
                     <div className="buttons">
-                      <button
-                        onClick={() => setModalApple(true)}
-                        className="download"
-                      >
+                      <button onClick={() => setModalApple(true)} className="download">
                         <div>
                           <AppleIcon className="icon-download" /> IOS
                         </div>
                       </button>
-                      <button
-                        onClick={() => setModalGoogle(true)}
-                        className="download android"
-                      >
+                      <button onClick={() => setModalGoogle(true)} className="download android">
                         <div>
                           <AndroidIcon className="icon-download" /> Android
                         </div>

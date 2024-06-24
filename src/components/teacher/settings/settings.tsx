@@ -60,17 +60,9 @@ const Settings = (props: TProps) => {
           <div className="settings-header">
             <h1>Settings</h1>
           </div>
-          {props.changeSuccess ? (
-            <Alert severity="success">Changed successfully</Alert>
-          ) : (
-            ""
-          )}
+          {props.changeSuccess ? <Alert severity="success">Changed successfully</Alert> : ""}
           {props.changeLoading ? <CircularProgress className="loading" /> : ""}
-          {props.changeErr ? (
-            <Alert severity="error">{props.changeErr}</Alert>
-          ) : (
-            ""
-          )}
+          {props.changeErr ? <Alert severity="error">{props.changeErr}</Alert> : ""}
           <div className="settings-main">
             <div className="settings-password">
               <div className="settings-password-header">
@@ -78,10 +70,7 @@ const Settings = (props: TProps) => {
                 <p>Changing the email will require verification.</p>
               </div>
               <div className="settings-password-content">
-                <form
-                  onSubmit={(e) => updateEmail(e)}
-                  className="password-change-form"
-                >
+                <form onSubmit={(e) => updateEmail(e)} className="password-change-form">
                   <div className="settings-password-textfields">
                     <TextField
                       required
@@ -102,11 +91,7 @@ const Settings = (props: TProps) => {
                   </div>
 
                   <div className="reset-password-btn-container">
-                    <Button
-                      className="reset-password-btn"
-                      type="submit"
-                      variant="contained"
-                    >
+                    <Button className="reset-password-btn" type="submit" variant="contained">
                       Update Email
                     </Button>
                   </div>
@@ -117,15 +102,11 @@ const Settings = (props: TProps) => {
               <div className="settings-password-header">
                 <h2>Reset password</h2>
                 <p>
-                  Password must contain at least 1 upper-case, 1 number and 1
-                  special character.
+                  Password must contain at least 1 upper-case, 1 number and 1 special character.
                 </p>
               </div>
               <div className="settings-password-content">
-                <form
-                  onSubmit={(e) => updatePassword(e)}
-                  className="password-change-form"
-                >
+                <form onSubmit={(e) => updatePassword(e)} className="password-change-form">
                   <div className="settings-password-textfields">
                     <TextField
                       required
@@ -182,11 +163,7 @@ const Settings = (props: TProps) => {
                   </div>
 
                   <div className="reset-password-btn-container">
-                    <Button
-                      className="reset-password-btn"
-                      type="submit"
-                      variant="contained"
-                    >
+                    <Button className="reset-password-btn" type="submit" variant="contained">
                       Reset password
                     </Button>
                   </div>

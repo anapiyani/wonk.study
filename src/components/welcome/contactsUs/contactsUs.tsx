@@ -35,12 +35,8 @@ const ContactUs = () => {
           <div className="contact-content-inside">
             <div className="contact-texts">
               <p className="contact-texts-default">Contact Us</p>
-              <p className="contact-texts-header">
-                We'd love to hear from you!
-              </p>
-              <p className="contact-texts-default">
-                Share your feedback and ask your questions.
-              </p>
+              <p className="contact-texts-header">We'd love to hear from you!</p>
+              <p className="contact-texts-default">Share your feedback and ask your questions.</p>
               <p className="contact-texts-credentials">
                 <FontAwesomeIcon icon={faEnvelope} /> wonkaikz@gmail.com
               </p>
@@ -75,11 +71,7 @@ const ContactUs = () => {
                   label="Your message..."
                   variant="outlined"
                 />
-                <Button
-                  className="send-button"
-                  type="submit"
-                  variant="contained"
-                >
+                <Button className="send-button" type="submit" variant="contained">
                   Send Message
                 </Button>
               </form>

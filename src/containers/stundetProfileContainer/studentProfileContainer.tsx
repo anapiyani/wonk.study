@@ -8,15 +8,9 @@ import { getStudentById } from "../../store/students.slice";
 const StudentProfileContainer = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { studentId } = useParams<{ studentId: string }>();
-  const studentInfo = useSelector(
-    (state: RootState) => state.students.student_info
-  );
-  const studentLoading = useSelector(
-    (state: RootState) => state.students.student_loading
-  );
-  const studentError = useSelector(
-    (state: RootState) => state.students.student_error
-  );
+  const studentInfo = useSelector((state: RootState) => state.students.student_info);
+  const studentLoading = useSelector((state: RootState) => state.students.student_loading);
+  const studentError = useSelector((state: RootState) => state.students.student_error);
 
   useEffect(() => {
     dispatch(getStudentById(studentId));

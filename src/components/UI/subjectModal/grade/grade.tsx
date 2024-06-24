@@ -10,9 +10,7 @@ type TProps = {
 const Grade = (props: TProps) => {
   const navigate = useNavigate();
   const onClickGradeWSubject = () => {
-    navigate(
-      `/teacher-dashboard/${props.classesSubject[0].course.id}/${props.parallels}`
-    );
+    navigate(`/teacher-dashboard/${props.classesSubject[0].course.id}/${props.parallels}`);
   };
 
   return (

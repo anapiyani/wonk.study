@@ -1,10 +1,5 @@
 import { Routes, BrowserRouter, Route } from "react-router-dom";
-import {
-  AboutUs,
-  ContactUs,
-  PrivacyPolicy,
-  TermsOfUse,
-} from "@/components/welcome";
+import { AboutUs, ContactUs, PrivacyPolicy, TermsOfUse } from "@/components/welcome";
 
 import PrivateRoutes from "@/utils/privateRoutes";
 import NotFound from "@/components/error/notFound";
@@ -42,14 +37,8 @@ const App = () => {
               path="/teacher-dashboard/grade/:grade/:section"
               element={<GradeStudentsContainer />}
             />
-            <Route
-              path="/teacher-dashboard/:studentId"
-              element={<StudentProfileContainer />}
-            />
-            <Route
-              path="/teacher-dashboard/:subject/:grade"
-              element={<SubjectPageContainer />}
-            />
+            <Route path="/teacher-dashboard/:studentId" element={<StudentProfileContainer />} />
+            <Route path="/teacher-dashboard/:subject/:grade" element={<SubjectPageContainer />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -22,22 +22,13 @@ const initialState: TInitialState = {
 
 export const getStudentsByGrade = createAsyncThunk(
   "students/getStudentsByGrade",
-  async ({
-    grade_level,
-    section,
-  }: {
-    grade_level: string;
-    section: string;
-  }) => {
+  async ({ grade_level, section }: { grade_level: string; section: string }) => {
     const token = localStorage.getItem("accessToken");
-    const response = await axiosWonk.get(
-      `/courses/get-students/${grade_level}/${section}/`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    const response = await axiosWonk.get(`/courses/get-students/${grade_level}/${section}/`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return response.data;
   }
 );
@@ -77,16 +68,12 @@ const studentsSlice = createSlice({
       })
       .addCase(getStudentById.rejected, (state, action) => {
         state.student_loading = false;
-        state.student_error =
-          "Ошибка при получении данных о студенте" || action.error.message;
+        state.student_error = "Ошибка при получении данных о студенте" || action.error.message;
       })
-      .addCase(
-        getStudentById.fulfilled,
-        (state, action: PayloadAction<TUserInfo>) => {
-          state.student_loading = false;
-          state.student_info = action.payload;
-        }
-      );
+      .addCase(getStudentById.fulfilled, (state, action: PayloadAction<TUserInfo>) => {
+        state.student_loading = false;
+        state.student_info = action.payload;
+      });
   },
 });
 

@@ -64,10 +64,7 @@ const TeacherHeader = (props: TProps) => {
               <div className="menu-content">
                 <ul>
                   <li>
-                    <NavLink
-                      to="/teacher-dashboard"
-                      className="nav-link-buttons"
-                    >
+                    <NavLink to="/teacher-dashboard" className="nav-link-buttons">
                       <DashboardOutlinedIcon className="icon-menu-phone" />
                       Main
                     </NavLink>
@@ -119,16 +116,9 @@ const TeacherHeader = (props: TProps) => {
           </div>
         </div>
       </div>
-      {logOutModal ? (
-        <LogOutModal closeModalLogOut={handleOpenModalLogOut} />
-      ) : (
-        ""
-      )}
+      {logOutModal ? <LogOutModal closeModalLogOut={handleOpenModalLogOut} /> : ""}
       {subjectModal ? (
-        <SubjectsModal
-          courses={props.courses}
-          handleOpenSubjectModal={handleOpenSubjectModal}
-        />
+        <SubjectsModal courses={props.courses} handleOpenSubjectModal={handleOpenSubjectModal} />
       ) : (
         ""
       )}
