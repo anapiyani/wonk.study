@@ -1,6 +1,7 @@
 import { Routes, BrowserRouter, Route } from "react-router-dom";
 import WelcomeContainer from "./containers/welcomeContainer/welcomeContainer";
-import AboutUs from "./components/welcome/aboutUs/aboutUs";
+// import AboutUs from "./components/welcome/aboutUs/aboutUs";
+import AboutUs from "@/components/welcome/aboutUs/aboutUs";
 import ContactUs from "./components/welcome/contactsUs/contactsUs";
 import PrivacyPolicy from "./components/welcome/policy/privacyPolicy";
 import TermsOfUse from "./components/welcome/termsOfUse/termsOfUse";
