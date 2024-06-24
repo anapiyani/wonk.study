@@ -1,25 +1,25 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axiosEmail from '../config/axiosEmailConfig';
-import { TEmailMessage } from '../types/types';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axiosEmail from "../config/axiosEmailConfig";
+import { TEmailMessage } from "../types/types";
 
-const initialState = {}
+const initialState = {};
 
 export const sendMessageEmail = createAsyncThunk(
-  'email/sendMessageEmail',
+  "email/sendMessageEmail",
   async (body: TEmailMessage) => {
     try {
-      const response = await axiosEmail.post('/send_email', body);
+      const response = await axiosEmail.post("/send_email", body);
       return response.data;
-    } catch (error) {  
+    } catch (error) {
       console.log(error);
     }
   }
 );
 
 const emailSlice = createSlice({
-  name: 'email',
+  name: "email",
   initialState,
-  reducers: {}
+  reducers: {},
 });
 
 export default emailSlice.reducer;

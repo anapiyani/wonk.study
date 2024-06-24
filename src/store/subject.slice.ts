@@ -34,21 +34,15 @@ export const subjectInfo = createAsyncThunk(
   }
 );
 
-export const gradesSubject = createAsyncThunk(
-  "info/gradesSubject",
-  async (course_id: number) => {
-    const token = localStorage.getItem("accessToken");
-    const response = await axiosWonk.get(
-      `/courses/teacher-classes/${course_id}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-    return response.data;
-  }
-);
+export const gradesSubject = createAsyncThunk("info/gradesSubject", async (course_id: number) => {
+  const token = localStorage.getItem("accessToken");
+  const response = await axiosWonk.get(`/courses/teacher-classes/${course_id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return response.data;
+});
 
 const subjectSlice = createSlice({
   name: "subject",
@@ -61,17 +55,13 @@ const subjectSlice = createSlice({
       })
       .addCase(gradesSubject.rejected, (state, action) => {
         state.isError =
-          "Ошибка при получении данных, попробуйте перезагрузить страницу!" ||
-          action.error.message;
+          "Ошибка при получении данных, попробуйте перезагрузить страницу!" || action.error.message;
         state.subjectLoading = false;
       })
-      .addCase(
-        gradesSubject.fulfilled,
-        (state, action: PayloadAction<TSubjectClasses[]>) => {
-          state.subjectClasses = action.payload;
-          state.subjectLoading = false;
-        }
-      )
+      .addCase(gradesSubject.fulfilled, (state, action: PayloadAction<TSubjectClasses[]>) => {
+        state.subjectClasses = action.payload;
+        state.subjectLoading = false;
+      })
       .addCase(subjectInfo.pending, (state) => {
         state.isLoading = true;
       })

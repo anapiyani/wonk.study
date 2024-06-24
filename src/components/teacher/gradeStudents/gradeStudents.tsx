@@ -27,8 +27,7 @@ const GradeStudents = (props: TProps) => {
             <div className="container">
               <div className="back">
                 <Link className="link-back" to="/teacher-dashboard">
-                  <KeyboardBackspaceOutlinedIcon className="icon-back" /> Go
-                  back
+                  <KeyboardBackspaceOutlinedIcon className="icon-back" /> Go back
                 </Link>
               </div>
               <div className="card-content">

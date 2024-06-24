@@ -16,14 +16,11 @@ const initialState: TInitialState = {
   token: null,
 };
 
-export const loginPost = createAsyncThunk(
-  "login/loginPost",
-  async (body: TLoginUser) => {
-    const response = await axiosWonk.post("/users/user/login/", body);
-    console.log(response.data);
-    return response.data;
-  }
-);
+export const loginPost = createAsyncThunk("login/loginPost", async (body: TLoginUser) => {
+  const response = await axiosWonk.post("/users/user/login/", body);
+  console.log(response.data);
+  return response.data;
+});
 
 const loginSlice = createSlice({
   name: "login",
@@ -44,8 +41,7 @@ const loginSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = false;
         state.isError =
-          "Упс, неправильный логин или пароль. Попробуйте ещё раз." ||
-          action.error.message;
+          "Упс, неправильный логин или пароль. Попробуйте ещё раз." || action.error.message;
       })
       .addCase(loginPost.fulfilled, (state, action) => {
         state.isLoading = false;

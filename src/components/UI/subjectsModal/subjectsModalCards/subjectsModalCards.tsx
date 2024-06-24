@@ -16,10 +16,7 @@ const SubjectsModalCard = (props: TProps) => {
     <div onClick={handleClickSubject} className="subject-modal-card">
       <div className="subject-card-content-modal">
         <div className="subject-card-body-modal">
-          <img
-            src={props.course_img ? props.course_img : historyCard}
-            alt="Subject"
-          />
+          <img src={props.course_img ? props.course_img : historyCard} alt="Subject" />
         </div>
       </div>
       <div className="subject-card-text-modal">

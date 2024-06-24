@@ -17,9 +17,7 @@ const iconMap: { [key: string]: React.ReactNode } = {
 };
 
 const Modal = (props: TProps) => {
-  const SelectedIcon = iconMap[props.icon] || (
-    <AppleIcon className="icon-image" />
-  );
+  const SelectedIcon = iconMap[props.icon] || <AppleIcon className="icon-image" />;
 
   return (
     <div className="modal">
@@ -29,10 +27,7 @@ const Modal = (props: TProps) => {
             <div className="window">
               <div className="window-content">
                 <div className="image">
-                  <img
-                    src={props.icon === "apple" ? QRios : QRandroid}
-                    alt="Modal Content"
-                  />
+                  <img src={props.icon === "apple" ? QRios : QRandroid} alt="Modal Content" />
                 </div>
               </div>
             </div>
