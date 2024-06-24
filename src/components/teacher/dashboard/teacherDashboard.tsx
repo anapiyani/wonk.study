@@ -32,7 +32,10 @@ const TeacherDashboard = (props: TProps) => {
   const subjectsContainerRef = useRef<HTMLDivElement>(null);
   const classesContainerRef = useRef<HTMLDivElement>(null);
 
-  const scroll = (ref: React.RefObject<HTMLDivElement>, direction: "left" | "right") => {
+  const scroll = (
+    ref: React.RefObject<HTMLDivElement>,
+    direction: "left" | "right"
+  ) => {
     const { current } = ref;
     if (current) {
       const scrollAmount = 200;
@@ -95,7 +98,10 @@ const TeacherDashboard = (props: TProps) => {
                   className="leftArrow"
                   onClick={() => scroll(subjectsContainerRef, "left")}
                 />
-                <div className="teacher-main-subjects-container" ref={subjectsContainerRef}>
+                <div
+                  className="teacher-main-subjects-container"
+                  ref={subjectsContainerRef}
+                >
                   {props.loading ? (
                     Array.from(new Array(5)).map((_, index) => (
                       <Skeleton
@@ -141,7 +147,10 @@ const TeacherDashboard = (props: TProps) => {
                   className="leftArrow"
                   onClick={() => scroll(classesContainerRef, "left")}
                 />
-                <div className="teacher-main-subjects-container" ref={classesContainerRef}>
+                <div
+                  className="teacher-main-subjects-container"
+                  ref={classesContainerRef}
+                >
                   {props.loading ? (
                     Array.from(new Array(6)).map((_, index) => (
                       <Skeleton
